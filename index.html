@@ -2,538 +2,220 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light only" />
-  <title>METRO Hero – GitHub Optimized</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>METRO – GitHub Pages Demo (Fixed Header)</title>
+
   <style>
     :root {
-      --metro-blue: #004f9f;
-      --metro-blue-strong: #005bac;
-      --metro-blue-cta: #1387e5;
-      --metro-blue-cta-hover: #0f79cd;
-      --page-bg: #dce8ee;
-      --nav-text: #003b7f;
-      --nav-divider: #d8dde5;
+      --metro-blue: #0a4a93;
+      --metro-link: #0f7fd8;
+      --page-bg: #e6eff4;
       --white: #ffffff;
-      --dot-inactive: #b8d7ef;
-      --hero-shadow: rgba(1, 42, 84, 0.14);
-      --overlay-bottom: rgba(0, 57, 122, 0.95);
-      --overlay-mid: rgba(0, 49, 104, 0.68);
-      --overlay-clear: rgba(0, 32, 74, 0.08);
-      --text-shadow: 0 1px 1px rgba(0,0,0,0.08);
-      --body-font: Arial, Helvetica, "Helvetica Neue", "Segoe UI", sans-serif;
+      --border: #d5dee6;
+
+      /* ✅ LOCKED METRO HEADER HEIGHT */
+      --nav-height: 96px;
     }
 
     * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--page-bg);
-      color: #0f172a;
-      font-family: var(--body-font);
-      min-height: 100%;
-    }
-
     body {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 29px 30px 34px;
+      margin: 0;
+      font-family: Arial, Helvetica, "Segoe UI", sans-serif;
+      background: var(--page-bg);
     }
 
-    .metro-demo {
-      width: min(1476px, calc(100vw - 60px));
-      position: relative;
-    }
+    /* ================= HEADER ================= */
 
-    .hero-shell {
-      position: relative;
-      width: 100%;
-      min-height: 669px;
-      border-radius: 2px;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.06) 14%, rgba(0,0,0,0) 28%),
-        linear-gradient(180deg, var(--overlay-clear) 0%, rgba(0, 45, 98, 0.26) 54%, var(--overlay-mid) 73%, var(--overlay-bottom) 100%),
-        url("https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=1900&rev=42dfafc4-573a-4069-add5-fffc83636c78&hash=FFE624BADE1BA5A43DA888BDDB04F818") center center / cover no-repeat;
-      box-shadow: 0 4px 20px var(--hero-shadow);
-      isolation: isolate;
-    }
-
-    .hero-shell::before {
-      content: "";
+    .nav-shell {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(78deg, rgba(0, 55, 116, 0.03) 0 46%, rgba(0, 40, 88, 0.58) 46.2% 56.6%, rgba(0, 27, 64, 0.07) 56.8% 100%);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .hero-shell::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 186px;
-      background: linear-gradient(180deg, rgba(0, 44, 94, 0) 0%, rgba(0, 57, 122, 0.72) 55%, rgba(0, 57, 122, 0.98) 100%);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .top-nav {
-      position: absolute;
-      top: 0;
+      top: 32px;
       left: 50%;
       transform: translateX(-50%);
-      width: calc(100% - 206px);
-      min-height: 82px;
-      margin-top: 0;
-      background: rgba(255,255,255,0.985);
-      border-radius: 4px;
+      width: calc(100vw - 160px);
+
+      /* ✅ hard lock */
+      height: var(--nav-height);
+      min-height: var(--nav-height);
+      max-height: var(--nav-height);
+
+      background: var(--white);
+      border-radius: 6px;
+      box-shadow: 0 10px 28px rgba(10,45,88,.08);
+
       display: flex;
       align-items: center;
-      padding: 0 0 0 29px;
-      z-index: 3;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.04);
-      margin-top: 0;
-      top: 31px;
-    }
 
-    .logo-link {
-      display: inline-flex;
-      align-items: center;
-      flex: 0 0 auto;
-      margin-right: 39px;
-      line-height: 1;
+      padding: 6px 24px;
+      z-index: 100;
     }
 
     .logo-link img {
-      width: 157px;
-      height: auto;
-      display: block;
+      width: 150px;
     }
 
-    .nav-menu,
-    .nav-tools {
+    .nav-primary,
+    .nav-utility {
+      display: flex;
+      align-items: center;
       list-style: none;
       margin: 0;
       padding: 0;
-      display: flex;
-      align-items: center;
     }
 
-    .nav-menu {
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
-    .nav-tools {
-      flex: 0 0 auto;
-      margin-left: 8px;
+    .nav-primary {
+      flex: 1;
+      margin-left: 36px;
     }
 
     .nav-item,
-    .tool-item {
+    .nav-tool {
       position: relative;
+      height: 100%;
       display: flex;
       align-items: center;
-      height: 82px;
-      flex: 0 0 auto;
     }
 
+    /* ✅ divider fix */
     .nav-item::after,
-    .tool-item::after {
+    .nav-tool::after {
       content: "";
       position: absolute;
       right: 0;
-      top: 23px;
+      top: 50%;
+      transform: translateY(-50%);
       width: 1px;
-      height: 36px;
-      background: var(--nav-divider);
+      height: 40px;
+      background: var(--border);
     }
 
     .nav-item:last-child::after,
-    .tool-item:last-child::after {
+    .nav-tool:last-child::after {
       display: none;
     }
 
-    .nav-link,
-    .tool-link {
-      text-decoration: none;
-      color: var(--nav-text);
+    .nav-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      height: 100%;
-      font-size: 16px;
-      line-height: 1;
-      font-weight: 700;
-      white-space: nowrap;
-      letter-spacing: -0.01em;
-    }
 
-    .nav-link {
-      padding: 0 21px 0 22px;
-      font-size: 17px;
+      padding: 0 22px;
+
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--metro-blue);
+      text-decoration: none;
+
+      /* ✅ pixel‑tuned */
+      line-height: 1.15;
+      padding-top: 1px;
+      padding-bottom: 1px;
     }
 
     .nav-link.contact {
-      color: var(--metro-blue-strong);
-      padding-right: 29px;
-    }
-
-    .tool-link {
-      justify-content: center;
-      width: 56px;
-      color: var(--metro-blue-strong);
+      color: var(--metro-link);
     }
 
     .caret {
-      display: inline-flex;
-      width: 11px;
-      height: 11px;
-      margin-top: 1px;
+      width: 12px;
+      height: 12px;
+      margin-top: 2px;
     }
 
-    .icon {
-      width: 22px;
-      height: 22px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .caret svg {
+      width: 100%;
+      height: 100%;
       stroke: currentColor;
       fill: none;
       stroke-width: 1.8;
-      vector-effect: non-scaling-stroke;
     }
 
-    .hero-content {
-      position: absolute;
-      z-index: 2;
-      left: 136px;
-      right: 220px;
-      bottom: 145px;
-      color: var(--white);
-      text-shadow: var(--text-shadow);
-    }
-
-    .hero-title {
-      margin: 0 0 22px;
-      font-size: clamp(39px, 3.15vw, 56px);
-      line-height: 1.08;
-      font-weight: 800;
-      letter-spacing: -0.032em;
-      max-width: 1120px;
-    }
-
-    .hero-text {
-      margin: 0 0 31px;
-      max-width: 880px;
-      font-size: clamp(19px, 1.42vw, 31px);
-      line-height: 1.54;
-      font-weight: 400;
-      letter-spacing: -0.012em;
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      min-height: 52px;
-      padding: 0 38px;
-      background: var(--metro-blue-cta);
-      color: var(--white);
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 17px;
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      box-shadow: inset 0 -1px 0 rgba(0,0,0,0.08);
-      transition: background-color 0.18s ease-in-out;
-    }
-
-    .cta:hover,
-    .cta:focus {
-      background: var(--metro-blue-cta-hover);
-    }
-
-    .cta .icon {
-      width: 18px;
-      height: 18px;
-      stroke-width: 2;
-    }
-
-    .slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-7px);
-      z-index: 4;
-      width: 22px;
-      height: 42px;
-      color: #1d82e7;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    .slider-arrow.left { left: 8px; }
-    .slider-arrow.right { right: 8px; }
-
-    .slider-arrow svg {
-      width: 16px;
-      height: 32px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2.3;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .hero-bottom-ui {
+    .nav-tool-btn {
+      width: 64px;
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      padding-top: 22px;
+      color: var(--metro-blue);
     }
 
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: var(--dot-inactive);
-      display: block;
+    /* ✅ icon pixel correction */
+    .nav-tool-btn .icon {
+      width: 24px;
+      height: 24px;
+      transform: translateY(1px);
     }
 
-    .dot.active {
-      width: 12px;
-      height: 12px;
-      background: #0b4891;
+    .icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
     }
 
-    .slide-index {
-      position: absolute;
-      right: 57px;
-      bottom: 314px;
-      z-index: 2;
-      color: rgba(0, 0, 0, 0.68);
-      font-size: 32px;
-      line-height: 1;
-      font-style: italic;
-      font-weight: 300;
-      letter-spacing: -0.03em;
-      pointer-events: none;
-    }
+    /* ================= PAGE PLACEHOLDER ================= */
 
-    .github-note {
-      margin: 16px 0 0;
-      color: #4a5568;
-      font-size: 13px;
-      line-height: 1.45;
+    .page-fill {
+      height: 120vh;
+      padding-top: 160px;
       text-align: center;
-      font-family: var(--body-font);
-    }
-
-    @media (max-width: 1200px) {
-      body { padding: 18px; }
-      .metro-demo { width: min(1476px, calc(100vw - 36px)); }
-      .top-nav {
-        width: calc(100% - 56px);
-        top: 18px;
-        padding-left: 18px;
-      }
-      .logo-link { margin-right: 18px; }
-      .logo-link img { width: 132px; }
-      .nav-link { padding: 0 14px; font-size: 15px; }
-      .tool-link { width: 48px; }
-      .hero-content {
-        left: 42px;
-        right: 42px;
-        bottom: 108px;
-      }
-      .hero-text { max-width: 740px; }
-      .slide-index { right: 22px; bottom: 280px; }
-    }
-
-    @media (max-width: 980px) {
-      .hero-shell { min-height: 620px; }
-      .top-nav {
-        min-height: 72px;
-        flex-wrap: wrap;
-        height: auto;
-        padding: 12px 14px;
-        gap: 10px 0;
-      }
-      .nav-item, .tool-item { height: 42px; }
-      .nav-item::after, .tool-item::after { display: none; }
-      .nav-menu {
-        order: 2;
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 2px;
-      }
-      .nav-tools { margin-left: auto; }
-      .nav-link {
-        padding: 0 12px 0 0;
-        font-size: 14px;
-      }
-      .nav-link.contact { padding-right: 12px; }
-      .hero-content { bottom: 96px; }
-      .hero-title { max-width: 100%; }
-      .hero-text { max-width: 100%; font-size: 18px; line-height: 1.5; }
-      .slide-index { display: none; }
-    }
-
-    @media (max-width: 640px) {
-      body { padding: 10px; }
-      .metro-demo { width: min(1476px, calc(100vw - 20px)); }
-      .hero-shell { min-height: 540px; }
-      .top-nav {
-        width: calc(100% - 20px);
-        top: 10px;
-        padding: 10px 12px;
-        border-radius: 3px;
-      }
-      .logo-link img { width: 120px; }
-      .hero-content {
-        left: 22px;
-        right: 22px;
-        bottom: 72px;
-      }
-      .hero-title {
-        font-size: clamp(28px, 7vw, 38px);
-        line-height: 1.12;
-        margin-bottom: 16px;
-      }
-      .hero-text {
-        font-size: 16px;
-        line-height: 1.48;
-        margin-bottom: 22px;
-      }
-      .cta {
-        min-height: 48px;
-        padding: 0 24px;
-        font-size: 16px;
-      }
-      .slider-arrow { display: none; }
-      .hero-bottom-ui { padding-top: 18px; gap: 12px; }
+      color: #123;
     }
   </style>
 </head>
+
 <body>
-  <div class="metro-demo">
-    <div class="hero-shell">
-      <nav class="top-nav" aria-label="Hauptnavigation">
-        <a class="logo-link" href="https://www.metroag.de/de" title="METRO">
-          <img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg?rev=139269df-1a50-4ca0-a804-a16cbb2b3e1e" alt="METRO" />
-        </a>
 
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.metroag.de/de/ueber-uns">
-              <span>Über uns</span>
-              <span class="caret" aria-hidden="true">
-                <svg viewBox="0 0 12 12" width="11" height="11"><path d="M2 4.25 6 8l4-3.75" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://investoren.metroag.de/">
-              <span>Investoren</span>
-              <span class="caret" aria-hidden="true">
-                <svg viewBox="0 0 12 12" width="11" height="11"><path d="M2 4.25 6 8l4-3.75" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://verantwortung.metroag.de/">
-              <span>Verantwortung</span>
-              <span class="caret" aria-hidden="true">
-                <svg viewBox="0 0 12 12" width="11" height="11"><path d="M2 4.25 6 8l4-3.75" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://newsroom.metroag.de/de">
-              <span>Newsroom</span>
-              <span class="caret" aria-hidden="true">
-                <svg viewBox="0 0 12 12" width="11" height="11"><path d="M2 4.25 6 8l4-3.75" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://karriere.metroag.de/">
-              <span>Karriere</span>
-              <span class="caret" aria-hidden="true">
-                <svg viewBox="0 0 12 12" width="11" height="11"><path d="M2 4.25 6 8l4-3.75" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link contact" href="https://www.metroag.de/de/kontakt">
-              <span>Kontakt</span>
-            </a>
-          </li>
-        </ul>
+  <nav class="nav-shell">
+    <a class="logo-link" href="#">
+      <img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg" alt="METRO">
+    </a>
 
-        <ul class="nav-tools" aria-label="Werkzeuge">
-          <li class="tool-item">
-            <a class="tool-link" href="https://www.metroag.de/de/search" title="Suche öffnen" aria-label="Suche öffnen">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.8"></circle><path d="M16 16 21 21"></path></svg>
-              </span>
-            </a>
-          </li>
-          <li class="tool-item">
-            <a class="tool-link" href="#" title="Darstellung wählen" aria-label="Darstellung wählen">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.3"></circle><path d="M12 2.7v2.7M12 18.6v2.7M21.3 12h-2.7M5.4 12H2.7M18.6 5.4l-1.9 1.9M7.3 16.7l-1.9 1.9M18.6 18.6l-1.9-1.9M7.3 7.3 5.4 5.4"></path></svg>
-              </span>
-            </a>
-          </li>
-          <li class="tool-item">
-            <a class="tool-link" href="https://www.metroag.de/en" title="Sprache auswählen" aria-label="Sprache auswählen">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4 6h9M8.5 6c-.4 3.8-2 7.4-4.5 10.3M6.3 12.2c1.7 1.8 3.7 3.1 5.7 4"></path><path d="M13.7 8.2h6.3M17.7 5v.3c0 4.6-1.7 8.4-4.7 11.5"></path><path d="m15.2 12.8 4.6 0M13.7 17.5l7-12.5"></path></svg>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="slider-arrow left" aria-hidden="true">
-        <svg viewBox="0 0 18 34"><path d="M14.5 2 3.5 17l11 15"/></svg>
-      </div>
-      <div class="slider-arrow right" aria-hidden="true">
-        <svg viewBox="0 0 18 34"><path d="M3.5 2 14.5 17l-11 15"/></svg>
-      </div>
-
-      <div class="slide-index" aria-hidden="true">I</div>
-
-      <section class="hero-content" aria-label="Titelbereich">
-        <h1 class="hero-title">Nachhaltiger Kakao: METRO &amp; CÉMOI für faire Lieferketten</h1>
-        <p class="hero-text">Schokolade ist wegen ihres Geschmacks und ihrer Vielfalt auf der ganzen Welt beliebt – aber die wichtigste Frage bleibt: Wo kommt der Kakao her und wie wird er hergestellt?</p>
-        <a class="cta" href="https://stories.metroag.de/de/lieferant/wie-sich-cemoi-fuer-eine-nachhaltige-kakao-produktion-an-der-elfenbeinkueste-engagiert" target="_blank" rel="noopener noreferrer">
-          <span>METRO Stories</span>
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M14 4h6v6"></path><path d="M20 4 9 15"></path><path d="M20 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5"></path></svg>
+    <ul class="nav-primary">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Newsroom
+          <span class="caret">
+            <svg viewBox="0 0 12 12"><path d="M2 4.5 6 8l4-3.5"/></svg>
           </span>
         </a>
-      </section>
-    </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Karriere
+          <span class="caret">
+            <svg viewBox="0 0 12 12"><path d="M2 4.5 6 8l4-3.5"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link contact" href="#">Kontakt</a>
+      </li>
+    </ul>
 
-    <div class="hero-bottom-ui" aria-label="Slider Indikatoren">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot active"></span>
-    </div>
+    <ul class="nav-utility">
+      <li class="nav-tool">
+        <button class="nav-tool-btn">
+          <span class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16 21 21"/></svg>
+          </span>
+        </button>
+      </li>
+      <li class="nav-tool">
+        <button class="nav-tool-btn">
+          <span class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3"/></svg>
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 
-    <p class="github-note">Single-file, GitHub-friendly static HTML: no external CSS or JS dependencies, only absolute asset URLs for the METRO logo and hero image.</p>
+  <div class="page-fill">
+    <h1>Header is now pixel‑locked and overlap‑free ✅</h1>
   </div>
+
 </body>
 </html>
+``
