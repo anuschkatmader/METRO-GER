@@ -1,0 +1,240 @@
+/* =============================================================================
+   MAKRO / METRO – PREFERENCE CENTER CSS
+   Based on Makro design system & OneTrust-style preference UI
+============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   BRAND TOKENS
+----------------------------------------------------------------------------- */
+:root {
+  --makro-blue:        #002D72;
+  --makro-blue-cta:    #0059E4;
+  --makro-yellow:      #FFE61B;
+  --makro-row-blue:    #CCE1FF;
+
+  --ink:               #11315f;
+  --muted:             #5e7395;
+  --line:              #dce6f4;
+  --bg:                #f4f7fb;
+  --white:             #ffffff;
+
+  --radius-sm:         8px;
+  --radius-md:         12px;
+  --radius-lg:         18px;
+
+  --shadow-panel:      0 10px 30px rgba(0, 45, 114, 0.08);
+  --transition:        all 0.2s ease;
+
+  --font-base:         Lato, -apple-system, BlinkMacSystemFont,
+                       "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* -----------------------------------------------------------------------------
+   BASE
+----------------------------------------------------------------------------- */
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================================================
+   TOP BAR
+============================================================================= */
+.pref-topbar {
+  height: 56px;
+  background: var(--makro-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  color: #fff;
+  font-weight: 800;
+}
+
+.pref-topbar .brand {
+  font-size: 20px;
+  text-transform: lowercase;
+}
+
+.pref-topbar .action {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* =============================================================================
+   HERO / HEADER
+============================================================================= */
+.pref-hero {
+  background: linear-gradient(135deg, #1a2340 0%, #0d1024 100%);
+  color: #ffffff;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.pref-hero h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/* =============================================================================
+   LAYOUT
+============================================================================= */
+.pref-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+}
+
+/* =============================================================================
+   SIDE NAVIGATION
+============================================================================= */
+.pref-nav {
+  background: #f7f9f7;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.pref-nav a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pref-nav a.active {
+  background: var(--white);
+  border-left: 4px solid var(--makro-yellow);
+}
+
+/* =============================================================================
+   CONTENT
+============================================================================= */
+.pref-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =============================================================================
+   CARD / SECTION
+============================================================================= */
+.pref-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  padding: 22px 24px;
+}
+
+.pref-card h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  color: var(--makro-blue);
+  font-weight: 800;
+}
+
+/* =============================================================================
+   PREFERENCE ROW
+============================================================================= */
+.pref-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.pref-row:first-child {
+  border-top: none;
+}
+
+.pref-row strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pref-row p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* =============================================================================
+   TOGGLE
+============================================================================= */
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: #cfd4da;
+  border-radius: 999px;
+  transition: var(--transition);
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.toggle input:checked + .toggle-slider {
+  background: var(--makro-blue-cta);
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* =============================================================================
+   FOOTER ACTION BAR
+============================================================================= */
+.pref-footer {
+  position: sticky;
+  bottom: 0;
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+/* Secondary button */
+.pref-footer .btn-secondary {
+  background: var(--white);
+  border: 2px solid var(--makro-blue);
+  color: var(--makro-blue);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-weight: 800;
+}
+
