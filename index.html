@@ -1,1216 +1,683 @@
-
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="de">
-<!--<![endif]-->
+
+<html lang="de">
 <head>
-<link href="/-/media/feature/mag/bootstrap-45/bootstrap-45/styles/optimized-min.css?rev=169290ab-54ac-4651-ae20-36fd0b0557a0&t=20240321T072750Z&hash=53EC79A423B136A4193AA026A9741FA8" rel="stylesheet"><link href="/-/media/themes/mag/metroag/metro-components/styles/optimized-min.css?rev=d8b6957d-523f-43c5-b5f6-4ddcb6ef4ef0&t=20260325T081412Z&hash=E42EEDE5763F4EE07AD4D03FFB68DCF0" rel="stylesheet"><link href="/-/media/themes/mag/metroag/metro-white/styles/optimized-min.css?rev=9012eb41-192b-4ea8-9eb6-ab63ffa979ba&t=20260407T144721Z&hash=C5493F372A64E42ABE7E247E453D665C" rel="stylesheet"><link href="/-/media/project/mag/shared/global/ui-references/pageheadslider.css?rev=bb9ad386-ad22-4876-9486-c863d7fa9799" rel="stylesheet"  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Großhandel ist unsere Leidenschaft | METRO AG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    
-    
+```
+:root {
+  --metro-blue: #003882;
+  --metro-red: #cc0000;
+  --metro-dark: #1a1a1a;
+  --metro-gray: #f5f5f5;
+  --metro-mid-gray: #6b6b6b;
+  --metro-border: #e0e0e0;
+  --white: #ffffff;
+}
 
+body {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  color: var(--metro-dark);
+  background: var(--white);
+  line-height: 1.5;
+}
 
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
 
-    <title>Großhandel ist unsere Leidenschaft | METRO AG</title>
+/* ── COOKIE BANNER ── */
+#cookie-banner {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.55);
+  display: flex; align-items: center; justify-content: center;
+}
+.cookie-box {
+  background: var(--white);
+  max-width: 720px; width: 90%;
+  padding: 32px;
+  border-radius: 4px;
+  max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+.cookie-box p { font-size: 14px; line-height: 1.7; color: #333; margin-bottom: 20px; }
+.cookie-box p a { color: var(--metro-blue); text-decoration: underline; }
+.cookie-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+.cookie-btn {
+  padding: 10px 20px; font-size: 14px; font-weight: 600;
+  border: 2px solid var(--metro-blue); border-radius: 2px;
+  cursor: pointer; font-family: inherit;
+}
+.cookie-btn.primary { background: var(--metro-blue); color: var(--white); }
+.cookie-btn.secondary { background: var(--white); color: var(--metro-blue); }
+.cookie-btn:hover { opacity: 0.85; }
+.cookie-section { border-top: 1px solid var(--metro-border); padding-top: 16px; margin-top: 16px; }
+.cookie-section summary { font-weight: 600; font-size: 14px; cursor: pointer; padding: 6px 0; }
+.cookie-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+.cookie-table th, .cookie-table td { border: 1px solid var(--metro-border); padding: 6px 10px; text-align: left; }
+.cookie-table th { background: var(--metro-gray); font-weight: 600; }
 
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--metro-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.header-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 72px;
+}
+.logo img { height: 36px; width: auto; }
+nav { display: flex; align-items: center; gap: 0; }
+.nav-item { position: relative; }
+.nav-item > a, .nav-item > button {
+  display: flex; align-items: center; gap: 5px;
+  padding: 0 16px; height: 72px;
+  font-size: 15px; font-weight: 600; color: var(--metro-dark);
+  background: none; border: none; cursor: pointer;
+  font-family: inherit; white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-item > a:hover, .nav-item > button:hover {
+  border-bottom-color: var(--metro-blue);
+  color: var(--metro-blue);
+  text-decoration: none;
+}
+.nav-item > a .arrow, .nav-item > button .arrow { font-size: 10px; }
+.dropdown {
+  display: none; position: absolute; top: 72px; left: 0;
+  background: var(--white); min-width: 220px;
+  border: 1px solid var(--metro-border);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  padding: 8px 0; z-index: 200;
+}
+.nav-item:hover .dropdown { display: block; }
+.dropdown a {
+  display: block; padding: 10px 20px;
+  font-size: 14px; color: var(--metro-dark);
+}
+.dropdown a:hover { background: var(--metro-gray); color: var(--metro-blue); text-decoration: none; }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.header-actions a, .header-actions button {
+  padding: 8px 14px; font-size: 14px; font-weight: 600;
+  color: var(--metro-mid-gray); background: none; border: none; cursor: pointer;
+  font-family: inherit; border-radius: 2px;
+}
+.header-actions a:hover, .header-actions button:hover {
+  color: var(--metro-blue); background: var(--metro-gray); text-decoration: none;
+}
+.lang-btn { font-size: 13px !important; }
 
+/* ── HERO SLIDER ── */
+.hero { position: relative; background: #000; overflow: hidden; }
+.hero-slide {
+  position: relative; width: 100%; min-height: 520px;
+  display: flex; align-items: flex-end;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  background-color: #1a2a4a;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1280px; margin: 0 auto; width: 100%;
+  padding: 48px 24px;
+}
+.hero-content h1 {
+  font-size: clamp(28px, 4vw, 52px); font-weight: 700;
+  color: var(--white); line-height: 1.15; margin-bottom: 16px;
+  max-width: 680px;
+}
+.hero-content p {
+  font-size: 16px; color: rgba(255,255,255,0.88);
+  max-width: 560px; margin-bottom: 28px; line-height: 1.7;
+}
+.hero-thumbnails {
+  position: absolute; bottom: 20px; right: 24px; z-index: 3;
+  display: flex; gap: 8px;
+}
+.thumb {
+  width: 100px; height: 66px; overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.3); cursor: pointer;
+  transition: border-color 0.2s;
+}
+.thumb.active { border-color: var(--white); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.play-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--metro-blue); color: var(--white);
+  padding: 10px 22px; font-size: 14px; font-weight: 600;
+  border: none; cursor: pointer; font-family: inherit; border-radius: 2px;
+}
+.play-btn:hover { background: #002a66; }
+.play-btn svg { width: 14px; height: 14px; fill: currentColor; }
 
-<meta  name="robots" content="index,follow">
-    <link href="/-/media/project/mag/shared/global/common/favmetro.ico?rev=766e616d-b554-497e-bca3-42c57ca33002" rel="shortcut icon" />
+/* ── SECTION COMMONS ── */
+section { padding: 64px 24px; }
+.section-inner { max-width: 1280px; margin: 0 auto; }
+.section-title {
+  font-size: 28px; font-weight: 700; color: var(--metro-dark);
+  margin-bottom: 32px; padding-bottom: 12px;
+  border-bottom: 3px solid var(--metro-blue); display: inline-block;
+}
 
+/* ── CARDS GRID ── */
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 900px) { .cards-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { .cards-grid { grid-template-columns: 1fr; } }
 
+.card { background: var(--white); border: 1px solid var(--metro-border); overflow: hidden; }
+.card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.card-body { padding: 20px; }
+.card-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+.card-body p { font-size: 14px; color: var(--metro-mid-gray); margin-bottom: 14px; line-height: 1.6; }
+.card-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--metro-blue);
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.card-link:hover { text-decoration: underline; }
+.card-link::after { content: '›'; font-size: 16px; }
 
+/* ── QUICKSTART ── */
+.quickstart { background: var(--metro-gray); }
+.quickstart-inner { display: flex; gap: 48px; align-items: flex-start; flex-wrap: wrap; }
+.quickstart-left { flex: 1; min-width: 200px; }
+.quickstart-left h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+.qs-newsroom-btn {
+  display: inline-block; background: var(--metro-blue); color: var(--white);
+  padding: 10px 22px; font-size: 14px; font-weight: 700;
+  border-radius: 2px; margin-bottom: 24px;
+}
+.qs-newsroom-btn:hover { background: #002a66; text-decoration: none; }
+.quickstart-links { list-style: none; }
+.quickstart-links li { border-bottom: 1px solid var(--metro-border); }
+.quickstart-links li a {
+  display: block; padding: 12px 0;
+  font-size: 14px; color: var(--metro-blue);
+}
+.quickstart-links li a:hover { text-decoration: underline; }
 
-<meta property="og:description"  content="METRO ist Partner der vielen kleinen und mittelgroßen selbstständigen Unternehmen. Ihr Erfolg ist unser Geschäft. An der Spitze des Konzerns steht die METRO AG als zentrale Managementholding."><meta property="og:type"  content="website"><meta property="og:image"  content="https://www.metroag.de/-/media/project/mag/corporate/metro-ag/images/teasers/metro-flags.jpg?rev=744c3a2c-ae12-4a87-9e83-31828394058f"><meta property="og:title"  content="METRO AG"><meta property="og:url"  content="https://www.metroag.de/de">
+/* ── ABOUT BLOCK ── */
+.about-block {
+  background: var(--metro-blue);
+}
+.about-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  max-width: 1280px; margin: 0 auto;
+}
+@media (max-width: 768px) { .about-inner { grid-template-columns: 1fr; } }
+.about-video {
+  position: relative; aspect-ratio: 16/9; background: #000; overflow: hidden;
+}
+.about-video img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+.about-video .play-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.play-circle {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(255,255,255,0.9); display: flex;
+  align-items: center; justify-content: center; cursor: pointer;
+}
+.play-circle svg { width: 20px; height: 20px; fill: var(--metro-blue); margin-left: 4px; }
+.about-text h2 { font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 16px; }
+.about-text p { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.75; margin-bottom: 24px; }
+.about-links { display: flex; gap: 12px; flex-wrap: wrap; }
+.about-link {
+  display: inline-block; padding: 9px 18px;
+  border: 2px solid rgba(255,255,255,0.6); color: var(--white);
+  font-size: 13px; font-weight: 600; border-radius: 2px;
+}
+.about-link:hover { background: rgba(255,255,255,0.15); text-decoration: none; }
 
+/* ── NEWS ── */
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .news-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .news-grid { grid-template-columns: 1fr; } }
+.news-card { border: 1px solid var(--metro-border); padding: 20px; }
+.news-tag { font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.08em; color: var(--metro-blue); margin-bottom: 8px; }
+.news-card h3 { font-size: 16px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; }
+.news-card time { font-size: 13px; color: var(--metro-mid-gray); }
+.all-news-btn {
+  display: inline-block; margin-top: 24px;
+  padding: 10px 22px; background: var(--metro-blue); color: var(--white);
+  font-size: 14px; font-weight: 700; border-radius: 2px;
+}
+.all-news-btn:hover { background: #002a66; text-decoration: none; }
 
+/* ── METRO STORIES BANNER ── */
+.stories-banner {
+  background: var(--metro-gray);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+}
+.stories-banner img { height: 120px; }
+.stories-text h2 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+.stories-btn {
+  display: inline-block; padding: 10px 22px;
+  background: var(--metro-blue); color: var(--white);
+  font-size: 14px; font-weight: 700; border-radius: 2px;
+}
+.stories-btn:hover { background: #002a66; text-decoration: none; }
 
-<meta  name="description" content="METRO ist Partner der vielen kleinen und mittelgroßen selbstständigen Unternehmen. Ihr Erfolg ist unser Geschäft. An der Spitze des Konzerns steht die METRO AG als zentrale Managementholding.">
+/* ── SOCIAL ── */
+.social-bar { background: var(--metro-dark); padding: 32px 24px; text-align: center; }
+.social-bar p { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 16px; }
+.social-icons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.social-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); color: var(--white);
+  font-size: 16px; transition: background 0.2s;
+}
+.social-icon:hover { background: var(--metro-blue); text-decoration: none; }
 
+/* ── FOOTER ── */
+footer { background: var(--metro-dark); color: rgba(255,255,255,0.8); }
+.footer-top {
+  max-width: 1280px; margin: 0 auto;
+  padding: 48px 24px 32px;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;
+}
+@media (max-width: 900px) { .footer-top { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }
+.footer-col h4 {
+  font-size: 13px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--white); margin-bottom: 14px;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.65); }
+.footer-col ul li a:hover { color: var(--white); text-decoration: underline; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  max-width: 1280px; margin: 0 auto;
+  padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo img { height: 28px; filter: brightness(0) invert(1); }
+.footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.5); }
+.footer-legal a:hover { color: var(--white); text-decoration: underline; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+```
 
-
-<meta property="twitter:site"  content="@METRO_News"><meta property="twitter:image"  content="https://www.metroag.de/-/media/project/mag/corporate/metro-ag/images/teasers/metro-flags.jpg?rev=744c3a2c-ae12-4a87-9e83-31828394058f"><meta property="twitter:description"  content="METRO ist Partner der vielen kleinen und mittelgroßen selbstständigen Unternehmen. Ihr Erfolg ist unser Geschäft. An der Spitze des Konzerns steht die METRO AG als zentrale Managementholding."><meta property="twitter:title"  content="METRO AG"><meta property="twitter:card"  content="summary">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-
-
-
-    <!--siteimprove-->
-        <link rel="preconnect" href="https://siteimproveanalytics.com" />
-        <script type="text/javascript">
-            (function () {
-                var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.defer = true;
-                sz.src = '//siteimproveanalytics.com/js/siteanalyze_1634.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
-            })();
-        </script>
-    <!-- Meta tag for Global site tag (gtag.js) - Google Analytics -->
-        <meta name="GA4MeasurementId" content="G-YFRH6F1TRX" />
-    <!-- Google Tag Manager -->
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js' });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.defer = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-
-            function gtag() { dataLayer.push(arguments); }
-
-            gtag('consent', 'default', {
-                'ad_storage': 'denied',
-                'analytics_storage': 'denied',
-                'ad_user_data': 'denied',
-                'ad_personalization': 'denied'
-            });
-
-        })(window, document, 'script', 'dataLayer', 'GTM-57TPZPQ');
-        </script>
-
-
-
-
-
-        <link rel="apple-touch-icon" href="https://www.metroag.de/-/media/project/mag/shared/global/logo/apple-touch-metro-icon-144x144-precomposed.png?rev=dc4a1696-86ed-45eb-aaca-62e6fb05438f" />
-    <link rel="canonical" href="https://www.metroag.de/de" />
-<link rel="me,nofollow" href="https://home.social/@metro" /><Meta  Name="google-site-verification" Content="P7yw3xWJW-YEJrkmgosuHfixnOwiObZbr4hC-9wXAXE"/>        <link rel="alternate" hreflang="en" href="https://www.metroag.de/en" />
-        <link rel="alternate" hreflang="de" href="https://www.metroag.de/de" />
-
-
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<meta name="pingdomString" content="d6424ced1425349e84d3d908eaeefcd3">
-
-
-
-    <link href="/-/media/project/mag/corporate/metro-ag/css/20231004-custom-nav.css?rev=e9b369ab-6d3b-4015-9a37-b2dae88bc505" rel="stylesheet" type="text/css" />
-
+  </style>
 </head>
-<body class="no-breadcrumb default-device bodyclass">
-    
+<body>
 
+<!-- ── COOKIE BANNER ── -->
 
+<div id="cookie-banner">
+  <div class="cookie-box">
+    <p><strong>Lieber Besucher,</strong><br>
+    um Ihnen den bestmöglichen Service zu bieten, verwenden wir Cookies. Einige Cookies sind für den Betrieb der Website notwendig. Andere Cookies für anonyme Statistiken, Präferenzen wie Sprache oder die Anzeige von Drittanbieter-Inhalten sind optional. Unter <a href="https://www.metroag.de/de/datenschutz" target="_blank"><strong>Datenschutz</strong></a> erhalten Sie weitere Informationen und können jederzeit die Einstellungen für Cookies anpassen.</p>
+    <div class="cookie-buttons">
+      <button class="cookie-btn primary" onclick="closeCookieBanner()">Alle Cookies ablehnen</button>
+      <button class="cookie-btn primary" onclick="closeCookieBanner()">Akzeptiere alle Cookies</button>
+      <button class="cookie-btn secondary" onclick="closeCookieBanner()">Einstellungen</button>
+    </div>
+
+```
+<details class="cookie-section">
+  <summary>Notwendig</summary>
+  <p style="margin-top:10px;font-size:13px;">Diese Cookies sind notwendig um die grundlegenden Funktionen der Website sicher zu stellen.</p>
+  <table class="cookie-table">
+    <thead><tr><th>Name</th><th>Beschreibung</th><th>Retention</th></tr></thead>
+    <tbody>
+      <tr><td>_mg</td><td>Authentifizierung des Benutzers</td><td>Session</td></tr>
+      <tr><td>allowedCookie</td><td>Speichert Cookie-Entscheidung</td><td>Session</td></tr>
+      <tr><td>ASP.NET_SessionId</td><td>Sitzungsstatus</td><td>Session</td></tr>
+      <tr><td>lang</td><td>Gewählte Sprache</td><td>Session</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="cookie-section">
+  <summary>Präferenz</summary>
+  <table class="cookie-table">
+    <thead><tr><th>Name</th><th>Beschreibung</th><th>Retention</th></tr></thead>
+    <tbody>
+      <tr><td>consentfuture</td><td>Speichert Zustimmung für zukünftige Sitzungen</td><td>390 Tage</td></tr>
+      <tr><td>langfuture</td><td>Gewählte Sprache für zukünftige Sitzungen</td><td>390 Tage</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="cookie-section">
+  <summary>Statistik</summary>
+  <table class="cookie-table">
+    <thead><tr><th>Name</th><th>Beschreibung</th><th>Retention</th></tr></thead>
+    <tbody>
+      <tr><td>_ga</td><td>Google Analytics – Benutzer unterscheiden</td><td>2 Jahre</td></tr>
+    </tbody>
+  </table>
+</details>
+```
+
+  </div>
+</div>
+
+<!-- ── HEADER ── -->
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg?rev=139269df-1a50-4ca0-a804-a16cbb2b3e1e" alt="METRO AG" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none;font-size:22px;font-weight:900;color:#003882;letter-spacing:-1px;">METRO</span>
+    </a>
+    <nav>
+      <div class="nav-item">
+        <a href="https://www.metroag.de/de/ueber-uns">Über uns <span class="arrow">▾</span></a>
+        <div class="dropdown">
+          <a href="https://www.metroag.de/de/ueber-uns">Über uns</a>
+          <a href="https://www.metroag.de/de/ueber-uns/strategie">Strategie</a>
+          <a href="https://www.metroag.de/de/ueber-uns/marken">Marken</a>
+          <a href="https://www.metroag.de/de/ueber-uns/vorstand">Vorstand</a>
+          <a href="https://www.metroag.de/de/ueber-uns/aufsichtsrat">Aufsichtsrat</a>
+          <a href="https://www.metroag.de/de/ueber-uns/corporate-governance">Corporate Governance</a>
+          <a href="https://www.metroag.de/de/ueber-uns/compliance">Compliance</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="https://investoren.metroag.de/">Investoren <span class="arrow">▾</span></a>
+        <div class="dropdown">
+          <a href="https://investoren.metroag.de/">Investoren</a>
+          <a href="https://investoren.metroag.de/anleihen">Anleihen</a>
+          <a href="https://investoren.metroag.de/news">News</a>
+          <a href="https://investoren.metroag.de/veranstaltungen">Veranstaltungen</a>
+          <a href="https://investoren.metroag.de/downloads">Downloads</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="https://verantwortung.metroag.de/">Verantwortung <span class="arrow">▾</span></a>
+        <div class="dropdown">
+          <a href="https://verantwortung.metroag.de/">Verantwortung</a>
+          <a href="https://verantwortung.metroag.de/ansatz/metro-sustainable">ESG Strategie</a>
+          <a href="https://verantwortung.metroag.de/esg-prioritaeten/klima-und-co2">ESG Prioritäten</a>
+          <a href="https://verantwortung.metroag.de/verpflichtungen">Verpflichtungen</a>
+          <a href="https://verantwortung.metroag.de/publikationen">Publikationen</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="https://newsroom.metroag.de/de">Newsroom <span class="arrow">▾</span></a>
+        <div class="dropdown">
+          <a href="https://newsroom.metroag.de/de">Newsroom</a>
+          <a href="https://newsroom.metroag.de/de/news">News</a>
+          <a href="https://newsroom.metroag.de/de/termine">Termine</a>
+          <a href="https://newsroom.metroag.de/de/downloads">Publikationen</a>
+          <a href="https://newsroom.metroag.de/de/rechtliche-mitteilungen">Rechtliche Mitteilungen</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="https://karriere.metroag.de">Karriere <span class="arrow">▾</span></a>
+        <div class="dropdown">
+          <a href="https://karriere.metroag.de">Karriere</a>
+          <a href="https://karriere.metroag.de/stellenangebote">Stellenangebote</a>
+          <a href="https://karriere.metroag.de/arbeiten-bei-metro">Arbeiten bei METRO</a>
+          <a href="https://karriere.metroag.de/junge-talente">Junge Talente</a>
+          <a href="https://karriere.metroag.de/berufstaetige">Berufstätige</a>
+        </div>
+      </div>
+    </nav>
+    <div class="header-actions">
+      <a href="https://www.metroag.de/de/kontakt">Kontakt</a>
+      <button>🔍 Suche</button>
+      <button class="lang-btn">DE | EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+
+<section class="hero" style="padding:0;">
+  <div class="hero-slide">
+    <div class="hero-bg" style="background-image:url('https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-still-169.jpg?w=1280&rev=3639fc85-cb68-45f3-a07a-95ff7068b663');"></div>
+    <div class="hero-content">
+      <h1>METRO Chef Kalbfleisch</h1>
+      <p>Unser METRO Chef Kalbfleisch steht für Premiumqualität in der Profiküche. Für Frische, die überzeugt. Für Verantwortung, die man schmeckt. Zartheit und Saftigkeit bei jedem Bissen.</p>
+      <button class="play-btn" onclick="alert('Video: METRO Chef Kalbfleisch')">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Spielen
+      </button>
+    </div>
+    <div class="hero-thumbnails">
+      <div class="thumb active">
+        <img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-still-169.jpg?w=200&rev=3639fc85-cb68-45f3-a07a-95ff7068b663" alt="Kalbfleisch">
+      </div>
+      <div class="thumb">
+        <img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=200&rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6" alt="Kräuter">
+      </div>
+      <div class="thumb">
+        <img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=200&rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4" alt="DISH POS">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STORIES CARDS ── -->
+
+<section>
+  <div class="section-inner">
+    <div class="cards-grid">
+      <div class="card">
+        <img class="card-img" src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=600&rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6" alt="Herrmann Kräuter">
+        <div class="card-body">
+          <h3>Wurzeln mit Zukunft</h3>
+          <p>Tradition trifft Technik: Wie Familie Herrmann Profi-Kräuter für METRO anbaut – nachhaltig, präzise und mit Liebe fürs Produkt.</p>
+          <a href="https://stories.metroag.de/de/lieferant/wurzeln-mit-zukunft" class="card-link" target="_blank">METRO Stories</a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=600&rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4" alt="DISH POS">
+        <div class="card-body">
+          <h3>Konzentration auf das, was wirklich zählt</h3>
+          <p>DISH POS hilft Gastronomen, sich auf das Wesentliche konzentrieren, denn das cloudbasierte Kassensystem spart Zeit.</p>
+          <a href="https://stories.metroag.de/de/gastronomie/konzentration-auf-das-was-wirklich-zaehlt" class="card-link" target="_blank">METRO Stories</a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=600&rev=42dfafc4-573a-4069-add5-fffc83636c78" alt="Nachhaltiger Kakao">
+        <div class="card-body">
+          <h3>Nachhaltiger Kakao: METRO &amp; CÉMOI für faire Lieferketten</h3>
+          <p>Schokolade ist wegen ihres Geschmacks und ihrer Vielfalt auf der ganzen Welt beliebt – aber die wichtigste Frage bleibt: Wo kommt der Kakao her?</p>
+          <a href="https://stories.metroag.de/de/lieferant/wie-sich-cemoi-fuer-eine-nachhaltige-kakao-produktion-an-der-elfenbeinkueste-engagiert" class="card-link" target="_blank">METRO Stories</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICKSTART ── -->
+
+<section class="quickstart">
+  <div class="section-inner">
+    <div class="quickstart-inner">
+      <div class="quickstart-left">
+        <h2>Schnellstart</h2>
+        <a href="https://newsroom.metroag.de/de" class="qs-newsroom-btn" target="_blank">Zum Newsroom</a>
+        <ul class="quickstart-links">
+          <li><a href="https://newsroom.metroag.de/de/termine/jahrespressekonferenz-2025?dt=20251204" target="_blank">Jahrespressekonferenz 2025</a></li>
+          <li><a href="https://newsroom.metroag.de/de/downloads#down_q=Geschäftsberichte" target="_blank">Geschäftsbericht 2024/25</a></li>
+          <li><a href="https://newsroom.metroag.de/de/news/metro-ag-aufsichtsrat-verlaengert-vorstandsvertraege-bis-2030?dt=20251203" target="_blank">METRO AG Aufsichtsrat verlängert Vorstandsverträge bis 2030</a></li>
+          <li><a href="https://verantwortung.metroag.de/ansatz/stakeholderbeziehungen/esg-ratings" target="_blank">ESG Ratings</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT / VIDEO ── -->
+
+<section class="about-block" style="padding: 64px 24px;">
+  <div class="about-inner">
+    <div class="about-video">
+      <img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/videos/corporate-movie-2024-still-169.jpg?w=800&rev=bf3b1e18-b9d6-47e6-b59e-bb569fa6b41e" alt="METRO – Enabling Moments">
+      <div class="play-overlay">
+        <div class="play-circle" onclick="alert('Video: METRO – Enabling Moments')">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <h2>METRO steht für Großhandel</h2>
+      <p>Großhandel ist unsere Leidenschaft. Seit 60 Jahren sind wir die erste Adresse für professionelle Kunden, die bei Lebensmitteln Wert auf hohe Qualität sowie attraktive Sortimente und Preise legen. Egal ob es sich um Hotels, Restaurants, Cafés oder kleine Lebensmittelhändler handelt. Wir verbinden unsere stationären Märkte mit einem starken Belieferungsservice und digitalen Lösungen zu einem einzigartigen Multichannel-Geschäftsmodell.</p>
+      <div class="about-links">
+        <a href="https://www.metroag.de/de/ueber-uns" class="about-link" target="_blank">Über uns</a>
+        <a href="https://www.metroag.de/de/ueber-uns/strategie" class="about-link" target="_blank">Strategie</a>
+        <a href="https://www.metroag.de/de/ueber-uns/marken" class="about-link" target="_blank">Marken</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWS ── -->
+
+<section>
+  <div class="section-inner">
+    <h2 class="section-title">Pressemitteilungen und Updates</h2>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-tag">Pressemitteilung</div>
+        <h3>METRO AG Aufsichtsrat verlängert Vorstandsverträge bis 2030</h3>
+        <time>03. Dezember 2025</time>
+      </div>
+      <div class="news-card">
+        <div class="news-tag">Jahresbericht</div>
+        <h3>Geschäftsbericht 2024/25 veröffentlicht</h3>
+        <time>04. Dezember 2025</time>
+      </div>
+      <div class="news-card">
+        <div class="news-tag">Veranstaltung</div>
+        <h3>Jahrespressekonferenz 2025 – Ergebnisse und Ausblick</h3>
+        <time>04. Dezember 2025</time>
+      </div>
+    </div>
+    <a href="https://newsroom.metroag.de/de/news" class="all-news-btn" target="_blank">Alle News</a>
+  </div>
+</section>
+
+<!-- ── METRO STORIES BANNER ── -->
+
+<section class="stories-banner">
+  <div class="section-inner" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;padding:0;">
+    <img src="https://www.metroag.de/-/media/project/mag/shared/global/logo/mpulse-artwork-comic.png?h=240&iar=0&w=260&rev=94b8555c-a439-4650-bb75-fcb0f3100c73" alt="METRO Stories" style="height:120px;width:auto;">
+    <div class="stories-text">
+      <h2>METRO Stories</h2>
+      <p style="margin-bottom:16px;color:var(--metro-mid-gray);font-size:15px;">Inspirierende Geschichten aus der Welt des Großhandels.</p>
+      <a href="https://stories.metroag.de/" class="stories-btn" target="_blank">Mehr Stories</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL ── -->
+
+<div class="social-bar">
+  <p>Folgen Sie METRO in den Sozialen Medien</p>
+  <div class="social-icons">
+    <a class="social-icon" href="https://www.linkedin.com/company/metro-ag" target="_blank" title="LinkedIn">in</a>
+    <a class="social-icon" href="https://www.instagram.com/metro_ag" target="_blank" title="Instagram">📷</a>
+    <a class="social-icon" href="https://www.facebook.com/METROAG" target="_blank" title="Facebook">f</a>
+    <a class="social-icon" href="https://www.youtube.com/metro" target="_blank" title="YouTube">▶</a>
+    <a class="social-icon" href="https://twitter.com/METRO_AG" target="_blank" title="X / Twitter">𝕏</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-col">
+      <h4>Über uns</h4>
+      <ul>
+        <li><a href="https://www.metroag.de/de/ueber-uns" target="_blank">Über uns</a></li>
+        <li><a href="https://www.metroag.de/de/ueber-uns/strategie" target="_blank">Strategie</a></li>
+        <li><a href="https://www.metroag.de/de/ueber-uns/marken" target="_blank">Marken</a></li>
+        <li><a href="https://www.metroag.de/de/ueber-uns/vorstand" target="_blank">Vorstand</a></li>
+        <li><a href="https://www.metroag.de/de/ueber-uns/aufsichtsrat" target="_blank">Aufsichtsrat</a></li>
+        <li><a href="https://www.metroag.de/de/ueber-uns/corporate-governance" target="_blank">Corporate Governance</a></li>
+        <li><a href="https://www.metroag.de/de/ueber-uns/compliance" target="_blank">Compliance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Investoren</h4>
+      <ul>
+        <li><a href="https://investoren.metroag.de/" target="_blank">Investoren</a></li>
+        <li><a href="https://investoren.metroag.de/anleihen" target="_blank">Anleihen</a></li>
+        <li><a href="https://investoren.metroag.de/news" target="_blank">News</a></li>
+        <li><a href="https://investoren.metroag.de/veranstaltungen" target="_blank">Veranstaltungen</a></li>
+        <li><a href="https://investoren.metroag.de/downloads" target="_blank">Downloads</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Newsroom</h4>
+      <ul>
+        <li><a href="https://newsroom.metroag.de/de" target="_blank">Newsroom</a></li>
+        <li><a href="https://newsroom.metroag.de/de/news" target="_blank">News</a></li>
+        <li><a href="https://newsroom.metroag.de/de/termine" target="_blank">Termine</a></li>
+        <li><a href="https://newsroom.metroag.de/de/downloads" target="_blank">Publikationen</a></li>
+        <li><a href="https://newsroom.metroag.de/de/rechtliche-mitteilungen" target="_blank">Rechtliche Mitteilungen</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Verantwortung</h4>
+      <ul>
+        <li><a href="https://verantwortung.metroag.de/" target="_blank">Verantwortung</a></li>
+        <li><a href="https://verantwortung.metroag.de/ansatz" target="_blank">ESG Strategie</a></li>
+        <li><a href="https://verantwortung.metroag.de/esg-prioritaeten" target="_blank">ESG Prioritäten</a></li>
+        <li><a href="https://verantwortung.metroag.de/verpflichtungen" target="_blank">Verpflichtungen</a></li>
+        <li><a href="https://verantwortung.metroag.de/publikationen" target="_blank">Publikationen</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Karriere</h4>
+      <ul>
+        <li><a href="https://karriere.metroag.de/" target="_blank">Karriere</a></li>
+        <li><a href="https://karriere.metroag.de/stellenangebote" target="_blank">Stellenangebote</a></li>
+        <li><a href="https://karriere.metroag.de/arbeiten-bei-metro" target="_blank">Arbeiten bei METRO</a></li>
+        <li><a href="https://karriere.metroag.de/junge-talente" target="_blank">Junge Talente</a></li>
+        <li><a href="https://karriere.metroag.de/berufstaetige" target="_blank">Berufstätige</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-logo">
+      <img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full-white_facelift.svg?rev=54721fe9-023c-410e-a3f1-cc8cbd8a0b81" alt="METRO" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none;font-size:18px;font-weight:900;color:#fff;">METRO</span>
+    </div>
+    <div class="footer-legal">
+      <a href="https://www.metroag.de/de/impressum" target="_blank">Impressum</a>
+      <a href="https://www.metroag.de/de/datenschutz" target="_blank">Datenschutz</a>
+      <a href="https://www.metroag.de/de/nutzungsbedingungen" target="_blank">Nutzungsbedingungen</a>
+      <a href="https://www.metroag.de/de/kontakt" target="_blank">Kontakt</a>
+    </div>
+    <span class="footer-copy">© 2025 METRO AG</span>
+  </div>
+</footer>
 
 <script>
-	function setSVGAttributes(object) {
-	if(object){
-			var obj = object;  // jQuery object for the <object> tag
-			var svgDoc = object.contentDocument || object.contentWindow.document;
-			var svgElement = svgDoc ? svgDoc.querySelector('svg') : null;
-
-			if (svgElement && !svgElement.classList.contains('viewBox')) {
-				var svgWidth = svgElement.getAttribute('width');
-				var svgHeight = svgElement.getAttribute('height');
-				var viewBox = svgElement.getAttribute("viewBox");
-				//If viewBox doesnot exist run below 
-				if (!viewBox && svgWidth != null && svgHeight != null) {
-				svgElement.setAttribute('viewBox', `0 0 ${svgWidth} ${svgHeight}`);
-				svgElement.classList.add('viewBox');
-				}
-			}
-		}
-	}
+  function closeCookieBanner() {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
 </script>
 
-
-
-
-    <!-- Siteimprove Script -->
-        <script defer src="/-/media/project/mag/shared/global/ui-references/siteimprove-event/siteimprove.js?rev=91407a16-b8f2-45d3-983d-cfff35857fbf"></script>
-    <!-- Google Tag Manager -->
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57TPZPQ" height="0" width="0" style="display: none; visibility: hidden"></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
-
-<div class="cookie-hidden-info" data-deleteCookieList=shell#lang data-categorycookieValue="preferences:i|statistics:i|third-party:i,google:i+youtube:i+flockler:i+starred:i" data-categorycookie=metro-ag#allowedusercookiecategories data-allowedcookie=metro-ag#allowedcookie data-futureconsentcookie=metro-ag#consentfuture data-langfuture=metro-ag#langfuture|de data-theme="metro-ag#theme" data-themefuture="metro-ag#themefuture" data-classicsearch="metro-ag#searchtype" data-classicsearchfuture="metro-ag#searchtypefuture" data-savedJobs="metro-ag#savedjobs" data-savedJobsfuture="metro-ag#savedjobsfuture" data-savedJobsConsent="False" style="display:none;"></div>
-<div id="cg-sites">
-        <img class="loadCookie" data-src="https://newsroom.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="loadCookie" data-src="https://responsibility.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="loadCookie" data-src="https://verantwortung.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="loadCookie" data-src="https://investors.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="loadCookie" data-src="https://investoren.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="loadCookie" data-src="https://www.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="loadCookie" data-src="https://careers.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="loadCookie" data-src="https://karriere.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-            <img class="themeCookie" data-src="https://www.metro-sourcing.hk/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.metro-gsc.in/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.miag.com/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.metro-gsc.pl/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.metro-potentials.com/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://politics.metroag.eu/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://politik.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://newsroom.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.metro-properties.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.metro-campus.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://responsibility.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://verantwortung.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://investors.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://investoren.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.metro-vto.es/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www.metro-properties.com.tr/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://careers.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://karriere.metroag.de/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www-p.careers.metro-gsc.pl/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www-p.careers.metro-gsc.in/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-        <img class="themeCookie" data-src="https://www-p.kariera.metro-gsc.pl/-/media/Project/MAG/shared/Global/Common/metro-logo-full.svg" style="display: none" />
-    </div>
-
-
-
-    
-<!-- #wrapper -->
-<div id="wrapper">
-    <!-- #header -->
-    <header>
-        <div id="header" class="">
-            
-
-
-<nav class="main_nav  ">
-
-    <div class="container">
-        <div class="main_nav__container">
-            <div class="main_nav__logo">
-
-                <a href="/de" title="METRO">
-                    <img src="/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg?rev=139269df-1a50-4ca0-a804-a16cbb2b3e1e" alt="METRO" class="li" height="32" width="133" />
-                    <img src="/-/media/project/mag/shared/global/common/metro-logo-full-darkmode_facelift.svg?rev=d24ae65d-6263-4b9e-8736-33f5af98ec95" alt="METRO" class="da" height="32" width="133"/>
-                </a>
-
-            </div>
-            <div class="main_nav__navi" id="mainNav">
-
-                
-
-<ul class="main_nav__navi__tree tree_page_1">
-    <li class="main_nav__navi__tree__item">
-        <a class="has-level-2" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-&#220;ber uns" role="button"
-           href="/de/ueber-uns"><span>&#220;ber uns</span></a>
-        <nav class="level-2" id="submenu-&#220;ber uns">
-            <div class="level-2-container">
-                <ul class="main_nav__navi__tree__level-2">
-                    <li class="main_nav__navi__tree__level-2__item">
-                        <a href="/de/ueber-uns"><span>&#220;ber uns</span></a>
-                    </li>
-
-
-    <li class="main_nav__navi__tree__level-2__item">
-            <a href="/de/ueber-uns/strategie"><span>Strategie</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a href="/de/ueber-uns/marken"><span>Marken</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a href="/de/ueber-uns/vorstand"><span>Vorstand</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a href="/de/ueber-uns/aufsichtsrat"><span>Aufsichtsrat</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a href="/de/ueber-uns/corporate-governance"><span>Corporate Governance</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a href="/de/ueber-uns/compliance"><span>Compliance</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a href="/de/ueber-uns/konzernweiter-datenschutz"><span>Konzernweiter Datenschutz</span></a>
-    </li>
-
-
-                </ul>
-                <div class="main_nav__navi__tree__level-2__shortlinks">
-<div class="teaser teaser--vertical"><div class="teaser__link" title="Über uns" href="https://www.metroag.de/de/ueber-uns"></div><div class="teaser__container"><figure class="teaser__figure" itemscope itemtype="https://schema.org/ImageObject"><picture class=""><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/metro-flags-teaser-11.jpg?w=600&amp;rev=7622f76e-a806-4ddc-8248-abdac9519fcf&amp;hash=B4D7092E72DA28F0C41A3C1212CEB063" media="(min-width: 1600px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/metro-flags-teaser-11.jpg?w=500&amp;rev=7622f76e-a806-4ddc-8248-abdac9519fcf&amp;hash=B11EFE31C362D464552A00924AB7E3C6" media="(min-width: 1200px)"></source><img src="/-/media/project/mag/shared/global/newsroom-media/images/teasers/metro-flags-teaser-11.jpg?w=10&rev=7622f76e-a806-4ddc-8248-abdac9519fcf" class="img-fluid teaser__figure__image" loading="lazy" width="600" height="600" itemprop="contentUrl" alt="Flaggen am METRO Hauptsitz" /><span itemprop="height" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="600" /></span><span itemprop="width" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="600" /></span><meta itemprop="encodingFormat"  content="image/jpeg" /><meta itemprop="contentSize"  content="194286" /><meta itemprop="copyrightNotice"  content="© 2025 METRO AG" /></picture></figure><div class="teaser__content"><div class="teaser__body__content"><h3 class="teaser-title field-teaser-title">Über uns</h3><p class="text-text field-teaser-description">METRO ist ein führender internationaler Lebensmittelgroßhändler, spezialisiert auf HoReCa und Traders.</p></div></div></div></div>                </div>
-            </div>
-        </nav>
-    </li>
-    <li class="main_nav__navi__tree__item">
-        <a class="has-level-2 " aria-haspopup="true" aria-expanded="false" aria-controls="submenu-Investoren" role="button"
-           href="https://investoren.metroag.de/" target="" alt="Investoren"><span>Investoren</span></a>
-        <nav class="level-2" id="submenu-Investoren">
-            <div class="level-2-container">
-                <ul class="main_nav__navi__tree__level-2">
-                    <li class="main_nav__navi__tree__level-2__item">
-                        <a class="" href="https://investoren.metroag.de/" target="" alt="Investoren"><span>Investoren</span></a>
-                    </li>
-
-
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://investoren.metroag.de/anleihen" target="" alt="Anleihen"><span>Anleihen</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://investoren.metroag.de/news" target="" alt="News"><span>News</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://investoren.metroag.de/veranstaltungen" target="" alt="Veranstaltungen"><span>Veranstaltungen</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://investoren.metroag.de/downloads" target="" alt="Downloads"><span>Downloads</span></a>
-    </li>
-
-
-                </ul>
-                <div class="main_nav__navi__tree__level-2__shortlinks">
-<div class="teaser teaser--vertical"></div>                </div>
-            </div>
-        </nav>
-    </li>
-    <li class="main_nav__navi__tree__item">
-        <a class="has-level-2 " aria-haspopup="true" aria-expanded="false" aria-controls="submenu-Verantwortung" role="button"
-           href="https://verantwortung.metroag.de/" target="" alt="Verantwortung"><span>Verantwortung</span></a>
-        <nav class="level-2" id="submenu-Verantwortung">
-            <div class="level-2-container">
-                <ul class="main_nav__navi__tree__level-2">
-                    <li class="main_nav__navi__tree__level-2__item">
-                        <a class="" href="https://verantwortung.metroag.de/" target="" alt="Verantwortung"><span>Verantwortung</span></a>
-                    </li>
-
-
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://verantwortung.metroag.de/ansatz/metro-sustainable" target="" alt="ESG Strategie"><span>ESG Strategie</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://verantwortung.metroag.de/esg-prioritaeten/klima-und-co2" target="" alt="ESG Priorit&#228;ten"><span>ESG Priorit&#228;ten</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://verantwortung.metroag.de/verpflichtungen" target="" alt="Verpflichtungen"><span>Verpflichtungen</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://verantwortung.metroag.de/publikationen" target="" alt="Publikationen"><span>Publikationen</span></a>
-    </li>
-
-
-                </ul>
-                <div class="main_nav__navi__tree__level-2__shortlinks">
-<div class="teaser teaser--vertical"></div>                </div>
-            </div>
-        </nav>
-    </li>
-    <li class="main_nav__navi__tree__item">
-        <a class="has-level-2 " aria-haspopup="true" aria-expanded="false" aria-controls="submenu-Newsroom" role="button"
-           href="https://newsroom.metroag.de/de" target="" alt="Newsroom"><span>Newsroom</span></a>
-        <nav class="level-2" id="submenu-Newsroom">
-            <div class="level-2-container">
-                <ul class="main_nav__navi__tree__level-2">
-                    <li class="main_nav__navi__tree__level-2__item">
-                        <a class="" href="https://newsroom.metroag.de/de" target="" alt="Newsroom"><span>Newsroom</span></a>
-                    </li>
-
-
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://newsroom.metroag.de/de/news" target="" alt="News"><span>News</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://newsroom.metroag.de/de/termine" target="" alt="Termine"><span>Termine</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://newsroom.metroag.de/de/downloads" target="" alt="Publikationen"><span>Publikationen</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://newsroom.metroag.de/de/rechtliche-mitteilungen" target="" alt="Rechtliche Mitteilungen"><span>Rechtliche Mitteilungen</span></a>
-    </li>
-
-
-                </ul>
-                <div class="main_nav__navi__tree__level-2__shortlinks">
-<div class="teaser teaser--vertical"></div>                </div>
-            </div>
-        </nav>
-    </li>
-    <li class="main_nav__navi__tree__item">
-        <a class="has-level-2 " aria-haspopup="true" aria-expanded="false" aria-controls="submenu-Karriere" role="button"
-           href="https://karriere.metroag.de" target="" alt="Karriere"><span>Karriere</span></a>
-        <nav class="level-2" id="submenu-Karriere">
-            <div class="level-2-container">
-                <ul class="main_nav__navi__tree__level-2">
-                    <li class="main_nav__navi__tree__level-2__item">
-                        <a class="" href="https://karriere.metroag.de" target="" alt="Karriere"><span>Karriere</span></a>
-                    </li>
-
-
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://karriere.metroag.de/stellenangebote" target="" alt="Stellenangebote"><span>Stellenangebote</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://karriere.metroag.de/arbeiten-bei-metro" target="" alt="Arbeiten bei METRO"><span>Arbeiten bei METRO</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://karriere.metroag.de/junge-talente" target="" alt="Junge Talente"><span>Junge Talente</span></a>
-    </li>
-    <li class="main_nav__navi__tree__level-2__item">
-            <a class="" href="https://karriere.metroag.de/berufstaetige" target="" alt="Berufst&#228;tige"><span>Berufst&#228;tige</span></a>
-    </li>
-
-
-                </ul>
-                <div class="main_nav__navi__tree__level-2__shortlinks">
-<div class="teaser teaser--vertical"></div>                </div>
-            </div>
-        </nav>
-    </li>
-    <li class="main_nav__navi__tree__item navi-tree-switch">
-        <div>
-            <button class="btn-plain btn-icon-horizontal-toggle" data-toggle="nav-tree" aria-expanded="false" aria-haspopup="true">
-                <span>mehr</span>
-            </button>
-        </div>
-    </li>
-</ul>
-<ul class="main_nav__navi__tree tree_page_2">
-</ul>
-
-
-
-
-
-
-                <aside class="main_nav__navi__helper">
-                    <ul class="main_nav__navi__helper__tree">
-
-
-                            <li class="main_nav__navi__helper__tree__item">
-                                <a class="" href="/de/kontakt" title="Kontakt">
-                                    <span class="ct_title">Kontakt</span>
-                                </a>
-                            </li>
-                        <li class="main_nav__navi__helper__tree__item main_nav__page_search header-searchbox">
-                            
-                            
-<div class="component mag-search-box horizontal" data-properties='{"endpoint":"/de/sxa/search/results/","suggestionEndpoint":"/de/sxa/search/suggestions/","suggestionsMode":"ShowSearchResults","resultPage":"/de/search","targetSignature":"","v":"{CA6ADC8D-E36A-42ED-A793-83041CA63207}","s":"","p":5,"l":"","languageSource":"SearchResultsLanguage","searchResultsSignature":"","itemid":"{F9C94780-5AFD-48D1-A8BD-043ED63AC8DE}","minSuggestionsTriggerCharacterCount":100}'>
-    <div class="component-content input-group">
-        
-                <div class="dropdown main_nav__page_search">
-
-                    <button class="btn-plain btn-icon-search" type="button" id="page-search-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="Suche &#246;ffnen">
-                        <span class="sr-only">Suche &#246;ffnen</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="page-search-menu" role="search">
-                        <form action="#" method="#">
-<div class="dropdown-menu-content input-group">
-                                    <input type="search" class="form-control form-control-lg search-box-input" aria-describedby="button-page-search" data-cssformat="form-control form-control-lg"
-                                           data-role="tagsinput" autocomplete="off" name="tagsinput" data-typesearch="true" placeholder="Suchbegriff eingeben" />
-                                    <div class="input-group-append">
-                                            <button id="button-page-search" type="submit" class="btn btn-primary btn-square search-box-button-with-redirect">
-                                                <span class="sr-only">
-                                                    Suchen
-                                                </span>
-                                                <span class="icon_search"></span>
-                                            </button>
-                                    </div>
-                                </div>
-
-                        </form>
-                    </div>
-                </div>
-    </div>
-</div>
-
-                        </li>
-                            <li class="main_nav__navi__helper__tree__item">
-                                <div class="dropdown main_nav__mode_menu">
-                                    <button class="btn-plain btn-icon-color-mode" title="Darstellung w&#228;hlen" aria-label="Darstellung w&#228;hlen" data-color-mode="off" id="mode-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="sr-only">Darstellung w&#228;hlen</span>
-                                    </button>
-                                    <div class="dropdown-menu mode_dropdown" aria-labelledby="mode-menu">
-                                        <span class="text-secondary my-2 d-block">Darstellung w&#228;hlen</span>
-                                        <div class="dropdown-menu-content">
-                                            <ul role="menu">
-                                                <li id="mode_light" class="lightmode text-nowrap" role="menuitem"><a title="Lichtmodus ausw&#228;hlen" href="#">Hell</a></li>
-                                                <li id="mode_dark" class="darkmode text-nowrap" role="menuitem"><a title="W&#228;hlen Sie den dunklen Modus" href="#">Dunkel</a></li>
-                                                <li id="mode_default" class="systemmode text-nowrap" role="menuitem"><a title="Lassen Sie Ihr System entscheiden" href="#">System (auto)</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                                                <li class="main_nav__navi__helper__tree__item">
-                            
-
-
-
-
-        <div class="dropdown main_nav__lang_menu" data-language-code="de" data-country-code="de">
-            <button title="Sprache ausw&#228;hlen" aria-label="Sprache ausw&#228;hlen" id="language-menu" type="button" class="btn-plain" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="icon_language"></span>
-            </button>
-            <div class="dropdown-menu language_dropdown" aria-labelledby="language-menu">
-                <span class="text-secondary my-2 d-block">Sprache ausw&#228;hlen</span>
-                <div class="dropdown-menu-content">
-                    <ul role="menu">
-                            <li class="no-bullet" role="menuitem">
-                                <a class="language-selector-select-link" role="option" href="/en" data-language-code="en" data-country-code="us" onclick=XA.cookies.createCookie(&#39;metro-ag#lang&#39;,&#39;en&#39;,0) title="English">
-                                    English
-                                </a>
-                            </li>
-                            <li class="no-bullet" role="menuitem">
-                                <a class="language-selector-select-link" role="option" href="/de" data-language-code="de" data-country-code="de" onclick=XA.cookies.createCookie(&#39;metro-ag#lang&#39;,&#39;de&#39;,0) title="Deutsch">
-                                    Deutsch
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-
-                        </li>
-                    </ul>
-                </aside>
-
-            </div>
-            <button class="main_nav__toggler btn btn-secondary btn-square" aria-expanded="false" aria-label="Toggle navigation" aria-controls="mainNav">
-                <span></span>
-            </button>
-        </div>
-    </div>
-</nav>
-
-        </div>
-    </header>
-    <!-- /#header -->
-    <!-- #content -->
-    <main>
-        <div id="content" class="">
-            
-
-    <div class="component content-container main_wrapper">
-        <div class="component-content">
-    <div class="component pagehead-slider consent-parent video-in-overlay">
-        <div class="component-content">
-
-                <div class="slick-slider-component" data-slides-per-view="" data-slick-slide-interval="15000" data-slick-show-navigations="true" data-slick-show-indicators="true" data-slick-slide-autoplay="true" data-slick-infinite="true">
-
-<header class="main_header_slider"><div class="swiper"><div class="swiper-wrapper"><section class="swiper-slide" role="group">
-    <div class="component pagehead main_header bg-metro main_header--lg">
-        <div class="component-content">
-<figure class="main_header__figure" itemscope itemtype="https://schema.org/ImageObject"><picture class=""><source srcset="/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-still-169.jpg?w=1900&amp;rev=3639fc85-cb68-45f3-a07a-95ff7068b663&amp;hash=70CF6118EC3B573F58E686D523CA98E0" media="(min-width: 1500px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-still-169.jpg?w=1500&amp;rev=3639fc85-cb68-45f3-a07a-95ff7068b663&amp;hash=7A3DA7EAD74902A8F19E098FB86CEB04" media="(min-width: 1200px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-still-169.jpg?w=1200&amp;rev=3639fc85-cb68-45f3-a07a-95ff7068b663&amp;hash=1188A065D95CA110CDFC8224DD3E688D" media="(min-width: 992px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-still-169.jpg?w=992&amp;rev=3639fc85-cb68-45f3-a07a-95ff7068b663&amp;hash=6B3C1CD21A761C197B4547A20B097D01" media="(min-width: 768px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-still-169.jpg?w=700&amp;rev=3639fc85-cb68-45f3-a07a-95ff7068b663&amp;hash=2D5ECD4A94B65CB83DDAED35F9E879ED" media="(min-width: 320px)"></source><img src="/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-still-169.jpg?w=320&rev=3639fc85-cb68-45f3-a07a-95ff7068b663" class="img-fluid" width="1900" height="1060" itemprop="contentUrl" alt="METRO Chef Kalbfleisch" fetchpriority="high" /><span itemprop="height" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="1060" /></span><span itemprop="width" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="1900" /></span><meta itemprop="encodingFormat"  content="image/jpeg" /><meta itemprop="contentSize"  content="681477" /><meta itemprop="copyrightNotice"  content="© 2025 METRO AG" /></picture><video class="headerVideoPreview" src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/videos/20260225-metro-chef-veal-tloop-169.mp4?rev=cb528be2-3ee1-48b3-b019-d2bdb97150aa" muted="true" autoplay="true" loop="true" preload="metadata" playsinline="true"></video></figure><div class="main_header__content consent-parent video-in-overlay"><div class="container"><h1 class="field-headline">METRO Chef Kalbfleisch</h1><div class="main_header__content__description"><p class="field-subheadline">Unser METRO Chef Kalbfleisch steht für Premiumqualität in der Profiküche. Für Frische, die überzeugt. Für Verantwortung, die man schmeckt. Zartheit und Saftigkeit bei jedem Bissen.</p><span class="btn btn-primary btn-iframe-consent btn-lg" data-toggle="modal" data-target="#eP9kkWKeWnR8"><span class="icon_play"></span><span class="field-text">Spielen</span></span><i class="d-none field-videoid">P9kkWKeWnR8</i><div class="disclaimer consentText"><div class="disclaimer__content disclaimer__content--light field-value"><p>Ich akzeptiere YouTube Cookies. Siehe <span style="white-space: nowrap;"><a class="link-underlined" rel="noopener noreferrer" href="https://policies.google.com/privacy?hl=de" target="_blank" title="Google Datenschutzerklärung">Google Datenschutzerkl&auml;rung</a>.</span></p></div></div><div class="modal fade headerVideo" id="eP9kkWKeWnR8" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-header" ratio="16/9"><h3 class="mb-0 field-videotitle">METRO Chef Kalbfleisch</h3><button class="close" data-dismiss="modal" type="button"></button></div><div class="modal-body"><div class="video-fluid" itemscope itemtype="https://schema.org/VideoObject"><iframe shorts="16/9" frameborder="0" class="consentIframe  in-overlay" data-video-id="P9kkWKeWnR8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" data-element="iframe" data-src-url="//www.youtube.com/embed/P9kkWKeWnR8?autoplay=1" data-provider="youtube" data-attr="src"></iframe><meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/P9kkWKeWnR8/hqdefault.jpg"></meta><meta  itemprop="name" content="METRO Chef Kalbfleisch">
-<meta  itemprop="description" content="Unser METRO Chef Kalbfleisch steht für Premiumqualität in der Profiküche. Für Frische, die überzeugt. Für Verantwortung, die man schmeckt. Zartheit und Saftigkeit bei jedem Bissen.">
-
-   <meta itemprop="contentUrl" content="https://www.youtube.com/watch?v=P9kkWKeWnR8">
-
-<meta itemprop="uploadDate" content="2026-03-02T08:32:49.000Z"></meta></div></div></div></div></div></div></div></div>        </div>
-    </div>
-</section><section class="swiper-slide" role="group">
-    <div class="component pagehead main_header bg-metro main_header--lg">
-        <div class="component-content">
-<figure class="main_header__figure" itemscope itemtype="https://schema.org/ImageObject"><picture class=""><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=1900&amp;rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6&amp;hash=44C3354DA3C76001EED011A336E15EE9" media="(min-width: 1500px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=1500&amp;rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6&amp;hash=FF7BB0CA8D21719FCE5848287D9ED21A" media="(min-width: 1200px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=1200&amp;rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6&amp;hash=0FFB88B72F789EE488A1C18A911FDA7E" media="(min-width: 992px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=992&amp;rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6&amp;hash=E841E1BFF7A9F7CF2F4C29697CAA3F56" media="(min-width: 768px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=700&amp;rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6&amp;hash=4A06952ACF6160661EAD0CD389C5F43E" media="(min-width: 320px)"></source><img src="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=320&rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6" class="img-fluid" width="1800" height="900" itemprop="contentUrl" alt="Herrmann Kräuter - Wurzeln mit Zukunft" /><span itemprop="height" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="900" /></span><span itemprop="width" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="1800" /></span><meta itemprop="encodingFormat"  content="image/jpeg" /><meta itemprop="contentSize"  content="791068" /><meta itemprop="copyrightNotice"  content="© 2025 METRO AG" /></picture></figure><div class="main_header__content consent-parent video-in-overlay"><div class="container"><h1 class="field-headline">Wurzeln mit Zukunft</h1><div class="main_header__content__description"><p class="field-subheadline">Tradition trifft Technik: Wie Familie Herrmann Profi-Kräuter für METRO anbaut – nachhaltig, präzise und mit Liebe fürs Produkt.</p><a class="btn btn-primary btn-lg" target="_blank" title="METRO Stories" href="https://stories.metroag.de/de/lieferant/wurzeln-mit-zukunft"><span>METRO Stories</span><span class="icon_arrow_right"></span></a></div></div></div>        </div>
-    </div>
-</section><section class="swiper-slide" role="group">
-    <div class="component pagehead main_header bg-metro main_header--lg">
-        <div class="component-content">
-<figure class="main_header__figure" itemscope itemtype="https://schema.org/ImageObject"><picture class=""><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=1900&amp;rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4&amp;hash=EA0C16D208A0FA0BB996F3BC5551D62F" media="(min-width: 1500px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=1500&amp;rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4&amp;hash=FE0FA9BE09F6C40B37AC26FA3CDF0AE1" media="(min-width: 1200px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=1200&amp;rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4&amp;hash=B8D312C831810613C18FB199FC754F3E" media="(min-width: 992px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=992&amp;rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4&amp;hash=EF9BE7F343F15D0A1165D77ABFFBC3A2" media="(min-width: 768px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=700&amp;rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4&amp;hash=7C1E0BA283D3B2EAF3B05F8073178AA7" media="(min-width: 320px)"></source><img src="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=320&rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4" class="img-fluid" width="1800" height="900" itemprop="contentUrl" alt="DISH POS: Konzentration auf das Wesentliche" /><span itemprop="height" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="900" /></span><span itemprop="width" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="1800" /></span><meta itemprop="encodingFormat"  content="image/jpeg" /><meta itemprop="contentSize"  content="616209" /><meta itemprop="copyrightNotice"  content="© 2025 METRO AG" /></picture></figure><div class="main_header__content consent-parent video-in-overlay"><div class="container"><h1 class="field-headline">Konzentration auf das, was wirklich zählt</h1><div class="main_header__content__description"><p class="field-subheadline">DISH POS hilft Gastronomen, sich auf das Wesentliche konzentrieren, denn das cloudbasierte Kassensystem spart Zeit.</p><a class="btn btn-primary btn-lg" target="_blank" title="METRO Stories" href="https://stories.metroag.de/de/gastronomie/konzentration-auf-das-was-wirklich-zaehlt"><span>METRO Stories</span><span class="icon_arrow_right"></span></a></div></div></div>        </div>
-    </div>
-</section><section class="swiper-slide" role="group">
-    <div class="component pagehead main_header bg-metro main_header--lg">
-        <div class="component-content">
-<figure class="main_header__figure" itemscope itemtype="https://schema.org/ImageObject"><picture class=""><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=1900&amp;rev=42dfafc4-573a-4069-add5-fffc83636c78&amp;hash=FFE624BADE1BA5A43DA888BDDB04F818" media="(min-width: 1500px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=1500&amp;rev=42dfafc4-573a-4069-add5-fffc83636c78&amp;hash=BCEF22C9CA047709991EE9F3210522BF" media="(min-width: 1200px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=1200&amp;rev=42dfafc4-573a-4069-add5-fffc83636c78&amp;hash=3BD82653B5C8171A2B4D5D81A46B5B1F" media="(min-width: 992px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=992&amp;rev=42dfafc4-573a-4069-add5-fffc83636c78&amp;hash=E16CB839EA036F6B96078021383E6B6F" media="(min-width: 768px)"></source><source srcset="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=700&amp;rev=42dfafc4-573a-4069-add5-fffc83636c78&amp;hash=655DE247D3FAAA3140ACE37795EDECD2" media="(min-width: 320px)"></source><img src="/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=320&rev=42dfafc4-573a-4069-add5-fffc83636c78" class="img-fluid" width="1800" height="900" itemprop="contentUrl" alt="Nachhaltiger Kakao: METRO &amp; CÉMOI für faire Lieferketten" /><span itemprop="height" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="900" /></span><span itemprop="width" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="1800" /></span><meta itemprop="encodingFormat"  content="image/jpeg" /><meta itemprop="contentSize"  content="476626" /><meta itemprop="copyrightNotice"  content="© 2025 METRO AG" /></picture></figure><div class="main_header__content consent-parent video-in-overlay"><div class="container"><h1 class="field-headline">Nachhaltiger Kakao: METRO &amp; CÉMOI für faire Lieferketten</h1><div class="main_header__content__description"><p class="field-subheadline">Schokolade ist wegen ihres Geschmacks und ihrer Vielfalt auf der ganzen Welt beliebt – aber die wichtigste Frage bleibt: Wo kommt der Kakao her und wie wird er hergestellt?</p><a class="btn btn-primary btn-lg" target="_blank" title="METRO Stories" href="https://stories.metroag.de/de/lieferant/wie-sich-cemoi-fuer-eine-nachhaltige-kakao-produktion-an-der-elfenbeinkueste-engagiert"><span>METRO Stories</span><span class="icon_arrow_right"></span></a></div></div></div>        </div>
-    </div>
-</section></div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div></header>
-                </div>
-        </div>
-            
-        </div>
-
-
-<div class="component bread-crumb mb-5 ">
-    <div class="component-content">
-            <nav class="breadcrumb calculating">
-                <div class="container">
-                    <div class="breadcrumb__nav">
-                        <div class="breadcrumb__nav__ellipsis">
-                            <div class="dropdown">
-                                <a href="#" class="link-underlined" id="breadcrumbDropdownBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    …
-                                </a>
-                                <ul class="dropdown-menu breadcrumb__nav__ellipsis__dropdown" aria-labelledby="breadcrumbDropdownBtn"></ul>
-                            </div>
-                        </div>
-                        <ol class="breadcrumb__nav__tree" itemscope itemtype="https://schema.org/BreadcrumbList">
-                                    <li class="breadcrumb__nav__tree__item last home" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-<span class="field-navigationtitle" itemprop="name">Start</span>                                            <meta itemprop="position" content="1">                                    </li>
-
-                        </ol>
-                    </div>
-                </div>
-            </nav>
-    </div>
-</div>
-
-
-  <div class="parent-container " id="schnellstart">
-      <div class="component  container sec-mt grid21 ">
-          <div class="row position-relative ">
-
-
-              <div class="component col-md-12 g-2 grids">
-                  <div class=" component-content floating-grid">
-
-
-<div class="headline-with-more cs">
-    <h2>Schnellstart</h2>
-    <div class="seclink my-btn outline"><a class="link-underlined resetov" title="Zum Newsroom" href="https://newsroom.metroag.de/de">Zum Newsroom</a></div>
-</div>
-<div class="headline-desc cs"></div>
-
-                      <div class="row">
-                          <div class="col-md-6 col-xl-8 ">
-
-    <div class="component re-mb">
-        <div class="component-content">
-<ul class="linklist"><li><a title="Jahrespressekonferenz 2025 - Termine" href="https://newsroom.metroag.de/de/termine/jahrespressekonferenz-2025?dt=20251204">Jahrespressekonferenz 2025</a></li><li><a title="Geschäftsbericht 2024/25 - Publikationen" href="https://newsroom.metroag.de/de/downloads?#down_q=Gesch&#228;ftsberichte">Geschäftsbericht 2024/25</a></li><li><a title="METRO AG Aufsichtsrat verlängert Vorstandsverträge bis 2030 - Pressemitteilung" href="https://newsroom.metroag.de/de/news/metro-ag-aufsichtsrat-verlaengert-vorstandsvertraege-bis-2030?dt=20251203">METRO AG Aufsichtsrat verlängert Vorstandsverträge bis 2030</a></li><li><a title="ESG Ratings - Bewertung in relevanten Nachhaltigkeitsindizes und -rankings - Verantwortung" href="https://verantwortung.metroag.de/ansatz/stakeholderbeziehungen/esg-ratings">ESG Ratings</a></li></ul>        </div>
-    </div>
-
-                          </div>
-                          <div class="col-md-6 col-xl-4 ">
-
-    <div class="component mb-4 latest-events re-mb inside-grid">
-        <div class="component-content">
-    <div class="component general-data-component">
-        <div class="component-content">
-<div class="has-additional-link headline-with-more"><div class="headline"></div><div class="seclink"><a class="link-underlined" href="https://newsroom.metroag.de/de/termine#a_q=Pressekonferenz&amp;a_e=0&amp;f_q=Pressekonferenz&amp;f_e=0&amp;u_q=Pressekonferenz&amp;u_e=0&amp;p_q=Pressekonferenz&amp;p_e=0"><span class="arrow"></span></a></div></div>        </div>
-    </div>
-
-
-
-<div class="component search-results re-mb rebrushsearchresults" data-class-variant="rebrushsearchresults" data-properties='{&quot;endpoint&quot;:&quot;/de/magsxa/magsearch/magresults/&quot;,&quot;v&quot;:&quot;{DFAAFD52-3CBD-47E0-923D-C4E537C62684}&quot;,&quot;s&quot;:&quot;{4287FE8E-2273-4E8A-9C7D-6FD7E9CDA626}&quot;,&quot;l&quot;:&quot;de&quot;,&quot;p&quot;:2,&quot;defaultSortOrder&quot;:&quot;Event Start Date,Ascending&quot;,&quot;sig&quot;:&quot;uf&quot;,&quot;itemid&quot;:&quot;{F9C94780-5AFD-48D1-A8BD-043ED63AC8DE}&quot;,&quot;datasourceid&quot;:&quot;{1A9055F1-8EA9-4B59-95FF-DCAD90366D9F}&quot;,&quot;autoFireSearch&quot;:true,&quot;recommendedArticles&quot;:false,&quot;latestMpulseArticles&quot;:false,&quot;showSavedJobs&quot;:false,&quot;showSharedJobs&quot;:false,&quot;wrapper&quot;:&quot;&quot;}'>
-        <div class="component-content">
-            
-            <div class="no-results" style="display: none">
-                Keine Ergebnisse gefunden
-                
-            </div>
-            <div class="progress"></div>
-        </div>
-</div>        </div>
-    </div>
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-
-  <div class="parent-container " id="">
-      <div class="component container sec-mt  ">
-          <div class="row position-relative ">
-
-
-              <div class="component col-md-12 g-1 grids">
-                  <div class=" component-content">
-
-
-<div class="headline-with-more cs">
-    <h2></h2>
-    <div class="seclink my-btn outline"></div>
-</div>
-<div class="headline-desc cs"></div>
-
-                      <div class="row">
-                          <div class="col-md-12">
-
-    <div class="component video_container re-mb consent-parent mb-4 mp-mb video-in-overlay">
-        <div class="component-content">
-<figure class="video_container" itemscope itemtype="https://schema.org/ImageObject" style="--aspect-ratio: 16/9"><picture class=""><source srcset="/-/media/project/mag/shared/global/newsroom-media/videos/corporate-movie-2024-still-169.jpg?w=1600&amp;rev=bf3b1e18-b9d6-47e6-b59e-bb569fa6b41e&amp;hash=DB163E39F41F4BFFB02DD538F638A63D" media="(min-width: 320px)"></source><img src="/-/media/project/mag/shared/global/newsroom-media/videos/corporate-movie-2024-still-169.jpg?w=320&rev=bf3b1e18-b9d6-47e6-b59e-bb569fa6b41e" class="img-fluid" loading="lazy" width="2560" height="1440" itemprop="contentUrl" alt="METRO – Enabling Moments" /><span itemprop="height" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="1440" /></span><span itemprop="width" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="value"  content="2560" /></span><meta itemprop="encodingFormat"  content="image/jpeg" /><meta itemprop="contentSize"  content="835491" /><meta itemprop="copyrightNotice"  content="© 2025 METRO AG" /></picture><div class="disclaimer consentText"><div class="disclaimer__content disclaimer__content--light"><p>Ich akzeptiere YouTube Cookies. Siehe <span style="white-space: nowrap;"><a class="link-underlined" rel="noopener noreferrer" href="https://policies.google.com/privacy?hl=de" target="_blank" title="Google Datenschutzerklärung">Google Datenschutzerkl&auml;rung</a>.</span></p></div></div><video class="teaserLoopVideo d-none" src="/-/media/project/mag/shared/global/newsroom-media/videos/corporate-movie-2024-tloop-169.mp4?rev=440addf4-25bf-4a62-ab5d-e7c78618b24c" muted="true" loop="true" playsinline="true" preload="none"></video><figcaption class="small field-videocaption"><p>Enabling Moments</p></figcaption><div class="btn-iframe-consent control btn btn-play btn-primary " data-toggle="modal" data-target="#id_50f7035c3005403699024ae798d21eef"><span class="sr-only field-text">Spielen</span></div></figure><div class="modal fade" id="id_50f7035c3005403699024ae798d21eef" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="id_50f7035c3005403699024ae798d21eef"><div class="modal-dialog modal-xl modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-header" ratio="16/9"><h4 class="mb-0 field-videotitle">METRO – Enabeling Moments</h4><button class="close" data-dismiss="modal" type="button" aria-label="Close"></button></div><div class="modal-body"><div class="video-fluid " itemscope itemtype="https://schema.org/VideoObject" style="--aspect-ratio: 16/9"><iframe content="https://www.youtube.com/watch?v=POs5gKEtMuw" shorts="16/9" frameborder="0" class="consentIframe in-overlay" data-video-id="POs5gKEtMuw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" itemprop="contentUrl" allowfullscreen="true" data-element="iframe" data-src-url="//www.youtube.com/embed/POs5gKEtMuw?ecver=2&amp;&amp;autoplay=1" data-provider="youtube" data-attr="src"></iframe><meta itemprop="name" content="METRO – Enabeling Moments"></meta><meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/POs5gKEtMuw/hqdefault.jpg"></meta><meta itemprop="uploadDate" content="2025-11-12T10:31:16.000Z"></meta><meta  itemprop="description" content='"Enabling Moments"'></div></div></div></div></div>        </div>
-    </div>
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-
-
-  <div class="parent-container " id="metro-steht-fuer-grosshandel">
-      <div class="component  container sec-mt grid21 ">
-          <div class="row position-relative ">
-
-
-              <div class="component col-md-12 g-2 grids">
-                  <div class=" component-content floating-grid">
-
-
-<div class="headline-with-more cs">
-    <h2>METRO steht für Großhandel</h2>
-    <div class="seclink my-btn outline"></div>
-</div>
-<div class="headline-desc cs"></div>
-
-                      <div class="row">
-                          <div class="col-md-6 col-xl-8 ">
-
-
-
-
-    <div class="component rich-text mb-4 cs mp-mb re-mb">
-        <div class="component-content">
-<p>Gro&szlig;handel ist unsere Leidenschaft. Seit 60 Jahren sind wir die erste Adresse f&uuml;r professionelle Kunden, die bei Lebensmitteln Wert auf hohe Qualit&auml;t sowie attraktive Sortimente und Preise legen. Egal ob es sich um Hotels, Restaurants, Caf&eacute;s oder kleine Lebensmittelh&auml;ndler handelt. Wir verbinden unsere station&auml;ren M&auml;rkte mit einem starken Belieferungsservice und digitalen L&ouml;sungen zu einem einzigartigen Multichannel-Gesch&auml;ftsmodell.</p>        </div>
-    </div>
-
-                          </div>
-                          <div class="col-md-6 col-xl-4 ">
-
-    <div class="component re-mb">
-        <div class="component-content">
-<ul class="linklist"><li><a title="Über uns" href="/de/ueber-uns">Über uns</a></li><li><a title="Strategie" href="/de/ueber-uns/strategie">Strategie</a></li><li><a title="Marken" href="/de/ueber-uns/marken">Marken</a></li></ul>        </div>
-    </div>
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-
-  <div class="parent-container " id="">
-      <div class="component container sec-mt  ">
-          <div class="row position-relative ">
-
-
-              <div class="component col-md-12 g-1 grids">
-                  <div class=" component-content">
-
-
-<div class="headline-with-more cs">
-    <h2></h2>
-    <div class="seclink my-btn outline"></div>
-</div>
-<div class="headline-desc cs"></div>
-
-                      <div class="row">
-                          <div class="col-md-12">
-
-    <div class="component latest-news re-mb inside-grid">
-        <div class="component-content">
-    <div class="component general-data-component">
-        <div class="component-content">
-<div class="has-additional-link headline-with-more"><div class="headline"><h2 class="font-normal field-title">Pressemitteilungen und Updates</h2></div><div class="seclink"><a class="link-underlined" title="Alle News" href="https://newsroom.metroag.de/de/news">Alle News<span class="arrow"></span></a></div></div>        </div>
-    </div>
-<div class="teaser_slider container"><div class="swiper ">
-
-
-<div class="component search-results re-mb rebrushsearchresults swiper-wrapper" data-class-variant="rebrushsearchresults" data-properties='{&quot;endpoint&quot;:&quot;/de/magsxa/magsearch/magresults/&quot;,&quot;v&quot;:&quot;{5CCFBD43-3822-42E8-AE4E-ED5A2073AC77}&quot;,&quot;s&quot;:&quot;{743507B6-723C-444E-A026-464D8C7C5CE9}&quot;,&quot;l&quot;:&quot;&quot;,&quot;p&quot;:3,&quot;defaultSortOrder&quot;:&quot;Release Date,Descending&quot;,&quot;sig&quot;:&quot;nv&quot;,&quot;itemid&quot;:&quot;{F9C94780-5AFD-48D1-A8BD-043ED63AC8DE}&quot;,&quot;datasourceid&quot;:&quot;{8A806536-FADF-48F9-885E-3187E7DDCA50}&quot;,&quot;autoFireSearch&quot;:true,&quot;recommendedArticles&quot;:false,&quot;latestMpulseArticles&quot;:false,&quot;showSavedJobs&quot;:false,&quot;showSharedJobs&quot;:false,&quot;wrapper&quot;:&quot;1&quot;}'>
-        <div class="component-content">
-            
-            <div class="no-results" style="display: none">
-                Keine Ergebnisse gefunden
-                
-            </div>
-            <div class="progress"></div>
-        </div>
-</div></div></div>        </div>
-    </div>
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-
-  <div class="parent-container " id="">
-      <div class="component component has-background sec-mt  ">
-              <div class="section-background gridbgc">
-                  <img src="/-/media/project/mag/shared/global/logo/mpulse-artwork-comic.png?h=1077&amp;iar=0&amp;w=1103&amp;rev=94b8555c-a439-4650-bb75-fcb0f3100c73" alt="METRO Stories Kunstwerk Comic" width="1103" height="1077" />
-
-              </div>
-          <div class="row position-relative ">
-
-
-              <div class="component col-md-12 g-1 grids">
-                  <div class="container component-content">
-
-
-<div class="headline-with-more cs">
-    <h2></h2>
-    <div class="seclink my-btn outline"></div>
-</div>
-<div class="headline-desc cs"></div>
-
-                      <div class="row">
-                          <div class="col-md-12">
-
-    <div class="component re-mb mparticleslider">
-        <div class="component-content">
-    <div class="component general-data-component">
-        <div class="component-content">
-<div class="has-additional-link headline-with-more"><div class="headline"><h2 class="font-normal field-title">METRO Stories</h2></div><div class="seclink"><a class="link-underlined" title="Mehr Stories" href="https://stories.metroag.de/">Mehr Stories<span class="arrow"></span></a></div></div>        </div>
-    </div>
-<div class="teaser_slider container"><div class="swiper">
-
-
-<div class="component search-results rebrushsearchresults swiper-wrapper" data-class-variant="rebrushsearchresults" data-properties='{&quot;endpoint&quot;:&quot;/de/magsxa/magsearch/magresults/&quot;,&quot;v&quot;:&quot;{DFAAFD52-3CBD-47E0-923D-C4E537C62684}&quot;,&quot;s&quot;:&quot;&quot;,&quot;l&quot;:&quot;&quot;,&quot;p&quot;:3,&quot;defaultSortOrder&quot;:&quot;Release Date,Descending&quot;,&quot;sig&quot;:&quot;stories&quot;,&quot;itemid&quot;:&quot;{F9C94780-5AFD-48D1-A8BD-043ED63AC8DE}&quot;,&quot;datasourceid&quot;:&quot;{DA4B9386-0987-4637-9AB5-E42BCEE53485}&quot;,&quot;autoFireSearch&quot;:true,&quot;recommendedArticles&quot;:false,&quot;latestMpulseArticles&quot;:true,&quot;showSavedJobs&quot;:false,&quot;showSharedJobs&quot;:false,&quot;wrapper&quot;:&quot;1&quot;}'>
-        <div class="component-content">
-            
-            <div class="no-results" style="display: none">
-                
-                
-            </div>
-            <div class="progress"></div>
-        </div>
-</div></div></div>        </div>
-    </div>
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-        </div>
-    </div>
-
-        </div>
-    </main>
-    <!-- /#content -->
-    <!-- #footer -->
-    <footer>
-        <div id="footer" class="">
-            
-
-
-    <nav class="metro_socials">
-        <span class="h6">Folgen Sie METRO in den Sozialen Medien</span>
-        <ul class="list-unstyled">
-                        <li>
-                            <a title="MPULSE auf facebook" rel="noopener noreferrer" href="https://www.facebook.com/mpulse/" target="_blank">
-                                <span class="socicon-facebook"></span>
-                            </a>
-
-                        </li>
-                        <li>
-                            <a title="MPULSE auf Instagram" rel="noopener noreferrer" href="https://www.instagram.com/metro_mpulse/" target="_blank">
-                                <span class="socicon-instagram"></span>
-                            </a>
-
-                        </li>
-                        <li>
-                            <a title="METRO auf Linkedin" rel="noopener noreferrer" href="https://www.linkedin.com/company/metro-ag" target="_blank">
-                                <span class="socicon-linkedin"></span>
-                            </a>
-
-                        </li>
-                        <li>
-                            <a title="METRO auf TikTok" rel="noopener noreferrer" href="https://www.tiktok.com/@metro_de" target="_blank">
-                                <span class="socicon-tiktok"></span>
-                            </a>
-
-                        </li>
-                        <li>
-                            <a title="METRO auf Youtube" rel="noopener noreferrer" href="https://www.metroag.de/youtube" target="_blank">
-                                <span class="socicon-youtube"></span>
-                            </a>
-
-                        </li>
-        </ul>
-    </nav>
-
-    <div class="main_footer py-4 py-sm-5">
-        <div class="container">
-            <div class="main_footer__nav">
-                <div class="row flex-column-reverse flex-sm-row">
-                    <div class="col-sm-5 col-md-4 col-xl-2">
-                        <div class="main_footer__copyright mt-5 mt-sm-0">
-                            <a href="">
-                                <img loading="lazy" class="main_footer__copyright__metro-logo" src="/-/media/project/mag/shared/global/common/metro-logo-full-white_facelift.svg?rev=54721fe9-023c-410e-a3f1-cc8cbd8a0b81" alt="METRO" height="32" width="133">
-                            </a>
-                            <nav>
-                                <ul class="list-unstyled m-0">
-                                    <li>
-                                            <a class="d-flex align-items-center ghlinks" data-toggle="modal" data-target="#globalHeader">
-                                                
-                                                Alle Websites  <span class="icon_globe"></span>
-                                            </a>
-                                            <div class="modal fade global-content" id="globalHeader" role="dialog" tabindex="-1" aria-labelledby="globalHeader" aria-hidden="true" data-detail="/~/link.aspx?_id=B04C2364F8FF441992A4C5D74869ECC9&amp;_z=z">
-                                                <div class="modal-dialog container modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h3 class="mb-0 gh-title">
-                                                                <img class="main_footer__copyright__metro-logo li" src="/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg?rev=139269df-1a50-4ca0-a804-a16cbb2b3e1e" alt="METRO">
-                                                                <img class="main_footer__copyright__metro-logo da" src="/-/media/project/mag/shared/global/common/metro-logo-full-white_facelift.svg?rev=54721fe9-023c-410e-a3f1-cc8cbd8a0b81" alt="METRO">
-                                                                <span>Alle Websites </span>
-                                                            </h3>
-
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </li>
-                                            <li><a href="https://www.metroag.de/de/impressum">Impressum</a></li>
-                                            <li><a href="https://www.metroag.de/de/datenschutz">Datenschutz</a></li>
-                                            <li><a href="https://www.metroag.de/de/nutzungsbedingungen">Nutzungsbedingungen</a></li>
-                                            <li><a href="https://www.metroag.de/de/vdp-policy">Schwachstellen melden</a></li>
-                                            <li><a href="https://www.metroag.de/de/kontakt">Kontakt</a></li>
-                                </ul>
-                            </nav>
-                                <a href="/de/copyright"><span class="small" aria-disabled="true">&#169; 2025 METRO AG</span></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-7 col-md-8 col-xl-10 mt-0">
-                        
-                            <nav class="row">
-                                            <div class="col-xl mt-0">
-                                                <section class="collapse-section">
-                                                    <a data-toggle="collapse" href="#footer_nav_1" role="button" aria-expanded="false" aria-controls="footer_nav_1" class="content-collapse">
-                                                        <span class="h6">&#220;ber uns</span>
-                                                    </a>
-                                                    <div class="collapse" id="footer_nav_1" style="">
-
-                                                        <ul class="list-unstyled mb-3 ">
-
-                                                                <li>
-                                                                    <a href="/de/ueber-uns"><span>&#220;ber uns</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/de/ueber-uns/strategie"><span>Strategie</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/de/ueber-uns/marken"><span>Marken</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/de/ueber-uns/vorstand"><span>Vorstand</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/de/ueber-uns/aufsichtsrat"><span>Aufsichtsrat</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/de/ueber-uns/corporate-governance"><span>Corporate Governance</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/de/ueber-uns/compliance"><span>Compliance</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="/de/ueber-uns/konzernweiter-datenschutz"><span>Konzernweiter Datenschutz</span></a>
-                                                                </li>
-
-
-                                                        </ul>
-
-
-                                                    </div>
-                                                </section>
-                                            </div>
-                                            <div class="col-xl mt-0">
-                                                <section class="collapse-section">
-                                                    <a data-toggle="collapse" href="#footer_nav_2" role="button" aria-expanded="false" aria-controls="footer_nav_2" class="content-collapse">
-                                                        <span class="h6">Investoren</span>
-                                                    </a>
-                                                    <div class="collapse" id="footer_nav_2" style="">
-
-                                                        <ul class="list-unstyled mb-3 ">
-
-                                                                <li>
-                                                                    <a href="https://investoren.metroag.de/"><span>Investoren</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://investoren.metroag.de/anleihen"><span>Anleihen</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://investoren.metroag.de/news"><span>News</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://investoren.metroag.de/veranstaltungen"><span>Veranstaltungen</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://investoren.metroag.de/downloads"><span>Downloads</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://investoren.metroag.de/kontakte"><span>Kontakte</span></a>
-                                                                </li>
-
-
-                                                        </ul>
-
-
-                                                    </div>
-                                                </section>
-                                            </div>
-                                            <div class="col-xl mt-0">
-                                                <section class="collapse-section">
-                                                    <a data-toggle="collapse" href="#footer_nav_3" role="button" aria-expanded="false" aria-controls="footer_nav_3" class="content-collapse">
-                                                        <span class="h6">Newsroom</span>
-                                                    </a>
-                                                    <div class="collapse" id="footer_nav_3" style="">
-
-                                                        <ul class="list-unstyled mb-3 ">
-
-                                                                <li>
-                                                                    <a href="https://newsroom.metroag.de/de"><span>Newsroom</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://newsroom.metroag.de/de/news"><span>News</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://newsroom.metroag.de/de/termine"><span>Termine</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://newsroom.metroag.de/de/downloads"><span>Publikationen</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://newsroom.metroag.de/de/rechtliche-mitteilungen"><span>Rechtliche Mitteilungen</span></a>
-                                                                </li>
-
-
-                                                        </ul>
-
-
-                                                    </div>
-                                                </section>
-                                            </div>
-                                            <div class="col-xl mt-0">
-                                                <section class="collapse-section">
-                                                    <a data-toggle="collapse" href="#footer_nav_4" role="button" aria-expanded="false" aria-controls="footer_nav_4" class="content-collapse">
-                                                        <span class="h6">Verantwortung</span>
-                                                    </a>
-                                                    <div class="collapse" id="footer_nav_4" style="">
-
-                                                        <ul class="list-unstyled mb-3 ">
-
-                                                                <li>
-                                                                    <a href="https://verantwortung.metroag.de/"><span>Verantwortung</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://verantwortung.metroag.de/ansatz"><span>ESG Strategie</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://verantwortung.metroag.de/esg-prioritaeten"><span>ESG Priorit&#228;ten</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://verantwortung.metroag.de/verpflichtungen"><span>Verpflichtungen</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://verantwortung.metroag.de/publikationen"><span>Publikationen</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://verantwortung.metroag.de/kontakt"><span>Kontakt</span></a>
-                                                                </li>
-
-
-                                                        </ul>
-
-
-                                                    </div>
-                                                </section>
-                                            </div>
-                                            <div class="col-xl mt-0">
-                                                <section class="collapse-section">
-                                                    <a data-toggle="collapse" href="#footer_nav_5" role="button" aria-expanded="false" aria-controls="footer_nav_5" class="content-collapse">
-                                                        <span class="h6">Karriere</span>
-                                                    </a>
-                                                    <div class="collapse" id="footer_nav_5" style="">
-
-                                                        <ul class="list-unstyled mb-3 ">
-
-                                                                <li>
-                                                                    <a href="https://karriere.metroag.de/"><span>Karriere</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://karriere.metroag.de/stellenangebote"><span>Stellenangebote</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://karriere.metroag.de/arbeiten-bei-metro"><span>Arbeiten bei METRO</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://karriere.metroag.de/junge-talente"><span>Junge Talente</span></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://karriere.metroag.de/berufstaetige"><span>Berufst&#228;tige</span></a>
-                                                                </li>
-
-
-                                                        </ul>
-
-
-                                                    </div>
-                                                </section>
-                                            </div>
-
-                            </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-        </div>
-    </footer>
-    <!-- /#footer -->
-</div>
-<!-- /#wrapper -->
-
-    
-    <script src="/-/media/base-themes/mag-core-libraries/scripts/optimized-min.js?rev=f43964de-c875-4c75-ae40-9388c4884cee&t=20260213T105505Z&hash=B429F2094966A12455757EC8EF77ECAD"></script><script src="/-/media/base-themes/mag-search-theme/scripts/optimized-min.js?rev=2646b1a4-e553-4d23-abfa-8c13a84fa2ac&t=20251112T053324Z&hash=EE2B24F76C4412322AF4D0CA21ABE4EE"></script><script src="/-/media/base-themes/bootstrap-select1-13-14/scripts/optimized-min.js?rev=c24ae79f-74fd-4048-82f8-74634d75bf7c&t=20251112T040052Z&hash=8058543955715E87CEF10513A25E45F2"></script><script src="/-/media/themes/mag/metroag/metro-components/scripts/optimized-min.js?rev=42125b99-3150-49de-b04d-b9fa748e56ea&t=20260325T081352Z&hash=DEE3BF9F180AC63E784C05670A4AE06C"></script><script src="/-/media/themes/mag/metroag/metro-white/scripts/optimized-min.js?rev=634d55f3-5c0f-4cfc-bf23-1baf322520c0&t=20260407T144715Z&hash=C30F2C4F360E057E191EF6833897EE59"></script>    
-    
-    <!-- /#wrapper -->
-    
-
-
-
-<script type="module">
-// select all the elements we want to wrap
-
-	const slides = document.querySelectorAll(".mag-image:not(.disable-popup) picture, .slider picture, .imagecollection .zoom-image ");
-	// loop over the elements
-	slides.forEach((item, index) => {
-	if(item.parentNode.classList.contains('image')|| item.parentNode.classList.contains('m-image')){
-    const img = item.querySelector('img'); // Select the first img tag
-	const obj = item.querySelector('object'); // Select the first object tag
-	let alt, src, width, height, imageSrc;
-	if (img) {
-		alt = img.alt;
-		src = img.src;
-		width = img.getAttribute("width");
-		height = img.getAttribute("height");
-		imageSrc = img.getAttribute("data-pswp-source");
-    }
-	else if (obj) {
-		alt = obj.getAttribute('alt'); // Default alt for SVGs
-		src = obj.getAttribute('data'); // Get the data attribute for the SVG source
-		width = obj.getAttribute("width");
-		height = obj.getAttribute("height");
-            }
-			if (src) {
-				const wrapper = document.createElement("a");
-				wrapper.setAttribute("title", alt);
-				
-				wrapper.setAttribute("class", "pswp-img ");
-				if(obj)
-				{
-				wrapper.classList.add("svg-img");
-				}
-				if (imageSrc)
-				{
-				 wrapper.setAttribute("data-pswp-src", imageSrc);
-				 wrapper.setAttribute("data-target",imageSrc);
-				}
-				else{
-					wrapper.setAttribute("data-target", src);
-					wrapper.setAttribute("data-pswp-src", src);
-					}
-				wrapper.setAttribute("href", "#"); // Set href to '#'
-				if (width) {
-					wrapper.setAttribute("data-pswp-width", width);
-							}
-				if (height) {
-					wrapper.setAttribute("data-pswp-height", height);
-							}
-				item.before(wrapper);
-				if(item.classList.contains('zoom-image'))
-					{
-							wrapper.appendChild(item.parentNode.firstChild);
-							item.remove();
-					}
-					else{
-					// add the element to the wrapper
-					wrapper.appendChild(item);
-					}
-			}
-		}
-	})	;
-
-	// Include Lightbox only when needed
-
-	import PhotoSwipeLightbox from '/-/media/themes/mag/metroag/metro-mpulse/plugins/photoswipe-lightboxesmmin.js?rev=c11d5306e64a4c85ba83b4537fa6ee47';
-
-	import PhotoSwipeDynamicCaption from '/-/media/themes/mag/metroag/metro-mpulse/plugins/photoswipe-dynamic-caption-pluginesmmin.js?rev=1fbe777f8fda43d3b1cf109d16dbccfd';
-
-	const smallScreenPadding = {
-
-		top: 0, bottom: 0, left: 0, right: 0
-
-	};
-
-	const largeScreenPadding = {
-
-		top: 30, bottom: 30, left: 0, right: 0
-
-	};
-
-	const lightbox = new PhotoSwipeLightbox({
-
-		gallery: '.slider,.mag-image:not(.disable-popup),.imagecollection',
-
-	children: '.slick-slide:not(.slick-cloned) a.pswp-img ,.mag-image:not(.disable-popup) a.pswp-img, .imgcollection a.pswp-img',
-
-	tapAction: 'close',
-
-	doubleTapAction: false,
-
-		paddingFn: (viewportSize) => {
-
-		return viewportSize.x < 821 ? smallScreenPadding : largeScreenPadding
-
-		},
-
-	showHideAnimationType: 'zoom',
-
-		pswpModule: () => import('/-/media/themes/mag/metroag/metro-mpulse/plugins/photoswipeesmmin.js?rev=b3688aa722b145a39f939c8f33f9c283')
-
-	});
-
-	const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
-
-		mobileLayoutBreakpoint: 821,
-
-	type: 'below',
-
-	mobileCaptionOverlapRatio: 1,
-
-		captionContent: (slide) => {
-
-		if(slide.data.element.nextElementSibling){
-
-			return slide.data.element.nextElementSibling.innerHTML;
-
-		}
-
-		}
-
-	});
-
-	lightbox.on('openingAnimationStart', () => {
-
-		jQuery('body').addClass('photoswipe-open');
-
-	});  
-
-	lightbox.on('closingAnimationStart', () => {
-
-		jQuery('body').removeClass('photoswipe-open');
-
-	jQuery('.pswp').addClass('closing');
-
-	setTimeout(function() {
-
-		jQuery('.pswp').addClass('closed');
-
-		},333)
-
-	});
-
-	lightbox.init();
-</script>
 </body>
 </html>
