@@ -101,11 +101,14 @@
     box-shadow: none !important;
   }
 
-  /* Prevent header overlapping hero */
-  body {
-    padding-top: 96px;
-  }
-
+ /* Reserve just enough space for the header */
+body {
+  padding-top: 56px !important;
+}
+/* Pull hero up slightly so it visually connects to header */
+.main_header_slider {
+  margin-top: -12px;
+}
   nav.main_nav {
     position: sticky;
     top: 0;
