@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -12,806 +11,786 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
- :root {
-   --metro-yellow: #FFCC00;
-   --metro-yellow-hover: #E6B800;
-   --metro-blue: #001E50;
-   --metro-blue-hover: #00306B;
-   --metro-link: #0061A0;
-   --metro-text: #1A1A1A;
-   --metro-text-muted: #5A5A5A;
-   --metro-bg: #FFFFFF;
-   --metro-bg-alt: #F4F4F4;
-   --metro-border: #E1E1E1;
-   --metro-radius: 4px;
-   --metro-radius-lg: 8px;
-   --metro-shadow: 0 2px 8px rgba(0, 30, 80, 0.08);
-   --metro-shadow-lg: 0 8px 32px rgba(0, 30, 80, 0.16);
-   --metro-font: "Inter", "Helvetica Neue", Arial, sans-serif;
- }
-
- * { box-sizing: border-box; }
-
- html, body {
-   margin: 0;
-   padding: 0;
-   font-family: var(--metro-font);
-   color: var(--metro-text);
-   background-color: var(--metro-bg);
-   font-size: 16px;
-   line-height: 1.55;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
- }
-
- ::selection {
-   background-color: var(--metro-yellow);
-   color: var(--metro-blue);
- }
-
- h1, h2, h3, h4, h5, h6 {
-   font-family: var(--metro-font);
-   color: var(--metro-blue);
-   font-weight: 800;
-   line-height: 1.15;
-   letter-spacing: -0.02em;
-   margin: 0 0 0.6em;
- }
-
- h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
- h2 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); }
- h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); font-weight: 700; }
-
- p { margin: 0 0 1em; }
-
- a {
-   color: var(--metro-link);
-   text-decoration: none;
-   font-weight: 500;
-   transition: color 0.15s ease;
- }
- a:hover { color: var(--metro-blue); text-decoration: underline; }
-
- img { max-width: 100%; height: auto; display: block; }
-
- /* ---------- HEADER ---------- */
- .site-header {
-   background: #fff;
-   border-bottom: 1px solid var(--metro-border);
-   position: sticky;
-   top: 0;
-   z-index: 100;
-   box-shadow: 0 1px 0 rgba(0,0,0,0.02);
- }
-
- .header-inner {
-   max-width: 1280px;
-   margin: 0 auto;
-   padding: 16px 24px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   gap: 24px;
- }
-
- .logo img { height: 32px; }
-
- .main-nav ul {
-   list-style: none;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   gap: 28px;
-   align-items: center;
- }
-
- .main-nav a {
-   color: var(--metro-blue);
-   font-weight: 600;
-   font-size: 0.95rem;
-   padding: 10px 0;
-   position: relative;
-   text-decoration: none;
- }
-
- .main-nav a::after {
-   content: "";
-   position: absolute;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   height: 3px;
-   background-color: var(--metro-yellow);
-   transform: scaleX(0);
-   transform-origin: left;
-   transition: transform 0.2s ease;
- }
- .main-nav a:hover::after,
- .main-nav a:focus-visible::after { transform: scaleX(1); }
-
- .header-utils {
-   display: flex;
-   align-items: center;
-   gap: 16px;
- }
-
- .header-utils button,
- .header-utils a {
-   background: none;
-   border: none;
-   color: var(--metro-blue);
-   font-weight: 600;
-   font-size: 0.9rem;
-   cursor: pointer;
-   padding: 8px;
-   font-family: inherit;
- }
-
- .lang-switch {
-   border: 1px solid var(--metro-border) !important;
-   border-radius: var(--metro-radius);
-   padding: 6px 12px !important;
- }
-
- /* ---------- HERO ---------- */
- .hero {
-   background: linear-gradient(135deg, var(--metro-blue) 0%, #002a6b 100%);
-   color: #fff;
-   padding: 80px 24px;
-   position: relative;
-   overflow: hidden;
- }
-
- .hero::before {
-   content: "";
-   position: absolute;
-   top: 0;
-   right: -200px;
-   width: 600px;
-   height: 600px;
-   background: var(--metro-yellow);
-   opacity: 0.08;
-   border-radius: 50%;
- }
-
- .hero-inner {
-   max-width: 1280px;
-   margin: 0 auto;
-   position: relative;
-   z-index: 1;
- }
-
- .hero-eyebrow {
-   display: inline-block;
-   background: var(--metro-yellow);
-   color: var(--metro-blue);
-   font-weight: 700;
-   font-size: 0.85rem;
-   padding: 6px 14px;
-   border-radius: var(--metro-radius);
-   margin-bottom: 20px;
-   text-transform: uppercase;
-   letter-spacing: 0.05em;
- }
-
- .hero h1 {
-   color: #fff;
-   max-width: 800px;
-   margin-bottom: 20px;
- }
-
- .hero p {
-   color: rgba(255,255,255,0.9);
-   font-size: 1.15rem;
-   max-width: 680px;
-   margin-bottom: 32px;
- }
-
- .hero-cta {
-   display: flex;
-   gap: 12px;
-   flex-wrap: wrap;
- }
-
- /* ---------- BUTTONS ---------- */
- .btn {
-   display: inline-block;
-   font-family: inherit;
-   font-weight: 700;
-   font-size: 0.95rem;
-   padding: 14px 28px;
-   border-radius: var(--metro-radius);
-   border: 2px solid transparent;
-   cursor: pointer;
-   text-decoration: none;
-   transition: all 0.15s ease;
-   line-height: 1.2;
- }
-
- .btn-primary {
-   background: var(--metro-yellow);
-   border-color: var(--metro-yellow);
-   color: var(--metro-blue);
- }
- .btn-primary:hover {
-   background: var(--metro-yellow-hover);
-   border-color: var(--metro-yellow-hover);
-   color: var(--metro-blue);
-   text-decoration: none;
- }
-
- .btn-secondary {
-   background: transparent;
-   border-color: #fff;
-   color: #fff;
- }
- .btn-secondary:hover {
-   background: #fff;
-   color: var(--metro-blue);
-   text-decoration: none;
- }
-
- /* ---------- SECTIONS ---------- */
- section {
-   padding: 64px 24px;
- }
-
- .section-inner {
-   max-width: 1280px;
-   margin: 0 auto;
- }
-
- .section-header {
-   margin-bottom: 40px;
-   display: flex;
-   justify-content: space-between;
-   align-items: flex-end;
-   flex-wrap: wrap;
-   gap: 16px;
- }
-
- .section-header h2 {
-   margin: 0;
- }
-
- .section-header h2::before {
-   content: "";
-   display: block;
-   width: 48px;
-   height: 4px;
-   background: var(--metro-yellow);
-   margin-bottom: 16px;
- }
-
- .section-link {
-   color: var(--metro-blue);
-   font-weight: 700;
-   position: relative;
-   padding-right: 22px;
- }
- .section-link::after {
-   content: "→";
-   position: absolute;
-   right: 0;
-   transition: transform 0.15s ease;
- }
- .section-link:hover::after { transform: translateX(4px); }
-
- /* ---------- TEASER GRID ---------- */
- .teaser-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-   gap: 24px;
- }
-
- .teaser {
-   background: #fff;
-   border-radius: var(--metro-radius-lg);
-   overflow: hidden;
-   box-shadow: var(--metro-shadow);
-   transition: transform 0.2s ease, box-shadow 0.2s ease;
-   display: flex;
-   flex-direction: column;
- }
-
- .teaser:hover {
-   transform: translateY(-4px);
-   box-shadow: var(--metro-shadow-lg);
- }
-
- .teaser-img {
-   aspect-ratio: 16 / 10;
-   background: var(--metro-bg-alt);
-   overflow: hidden;
- }
-
- .teaser-img img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   transition: transform 0.3s ease;
- }
-
- .teaser:hover .teaser-img img { transform: scale(1.04); }
-
- .teaser-body {
-   padding: 24px;
-   display: flex;
-   flex-direction: column;
-   flex: 1;
- }
-
- .teaser-tag {
-   display: inline-block;
-   color: var(--metro-blue);
-   background: var(--metro-yellow);
-   font-size: 0.75rem;
-   font-weight: 700;
-   padding: 4px 10px;
-   border-radius: 2px;
-   text-transform: uppercase;
-   letter-spacing: 0.05em;
-   margin-bottom: 12px;
-   align-self: flex-start;
- }
-
- .teaser h3 {
-   margin: 0 0 12px;
-   font-size: 1.25rem;
- }
-
- .teaser p {
-   color: var(--metro-text-muted);
-   font-size: 0.95rem;
-   margin-bottom: 16px;
-   flex: 1;
- }
-
- .teaser-link {
-   color: var(--metro-blue);
-   font-weight: 700;
-   font-size: 0.9rem;
-   position: relative;
-   padding-right: 20px;
-   align-self: flex-start;
- }
- .teaser-link::after {
-   content: "→";
-   position: absolute;
-   right: 0;
-   transition: transform 0.15s ease;
- }
- .teaser-link:hover::after { transform: translateX(4px); }
-
- /* ---------- ABOUT BLOCK ---------- */
- .about {
-   background: var(--metro-bg-alt);
- }
-
- .about-grid {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 64px;
-   align-items: center;
- }
-
- .about-links {
-   list-style: none;
-   margin: 24px 0 0;
-   padding: 0;
-   display: flex;
-   flex-wrap: wrap;
-   gap: 12px;
- }
-
- .about-links a {
-   display: inline-block;
-   background: #fff;
-   border: 2px solid var(--metro-blue);
-   color: var(--metro-blue);
-   font-weight: 700;
-   padding: 10px 20px;
-   border-radius: var(--metro-radius);
-   text-decoration: none;
-   transition: all 0.15s ease;
- }
- .about-links a:hover {
-   background: var(--metro-blue);
-   color: #fff;
- }
-
- .about-image {
-   aspect-ratio: 4 / 3;
-   background: linear-gradient(135deg, var(--metro-yellow) 0%, #FFE066 100%);
-   border-radius: var(--metro-radius-lg);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: var(--metro-blue);
-   font-size: 8rem;
-   font-weight: 900;
-   box-shadow: var(--metro-shadow-lg);
- }
-
- /* ---------- QUICK FACTS ---------- */
- .facts {
-   background: var(--metro-blue);
-   color: #fff;
- }
-
- .facts h2 { color: #fff; }
- .facts h2::before { background: var(--metro-yellow); }
-
- .facts-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-   gap: 32px;
-   margin-top: 32px;
- }
-
- .fact-item {
-   border-left: 3px solid var(--metro-yellow);
-   padding-left: 20px;
- }
-
- .fact-number {
-   font-size: 2.5rem;
-   font-weight: 800;
-   color: var(--metro-yellow);
-   line-height: 1;
-   margin-bottom: 8px;
- }
-
- .fact-label {
-   color: rgba(255,255,255,0.85);
-   font-size: 0.95rem;
- }
-
- /* ---------- FOOTER ---------- */
- .site-footer {
-   background: var(--metro-blue);
-   color: #fff;
-   padding: 64px 24px 24px;
- }
-
- .footer-inner {
-   max-width: 1280px;
-   margin: 0 auto;
- }
-
- .footer-grid {
-   display: grid;
-   grid-template-columns: 2fr repeat(4, 1fr);
-   gap: 40px;
-   margin-bottom: 48px;
- }
-
- .footer-brand img {
-   height: 32px;
-   margin-bottom: 20px;
-   filter: brightness(0) invert(1);
- }
-
- .footer-brand p {
-   color: rgba(255,255,255,0.75);
-   font-size: 0.9rem;
-   max-width: 260px;
- }
-
- .footer-col h4 {
-   color: var(--metro-yellow);
-   font-size: 0.85rem;
-   font-weight: 700;
-   text-transform: uppercase;
-   letter-spacing: 0.08em;
-   margin-bottom: 16px;
- }
-
- .footer-col ul {
-   list-style: none;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
- }
-
- .footer-col a {
-   color: rgba(255,255,255,0.85);
-   font-size: 0.9rem;
-   font-weight: 400;
-   text-decoration: none;
- }
- .footer-col a:hover {
-   color: var(--metro-yellow);
-   text-decoration: underline;
- }
-
- .footer-bottom {
-   border-top: 1px solid rgba(255,255,255,0.15);
-   padding-top: 24px;
-   display: flex;
-   justify-content: space-between;
-   flex-wrap: wrap;
-   gap: 16px;
-   font-size: 0.85rem;
-   color: rgba(255,255,255,0.65);
- }
-
- .footer-bottom-links {
-   list-style: none;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   gap: 24px;
-   flex-wrap: wrap;
- }
-
- .footer-bottom-links a {
-   color: rgba(255,255,255,0.85);
-   font-size: 0.85rem;
- }
-
- /* ---------- RESPONSIVE ---------- */
- @media (max-width: 900px) {
-   .main-nav { display: none; }
-   .about-grid { grid-template-columns: 1fr; gap: 32px; }
-   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
- }
-
- @media (max-width: 600px) {
-   .header-inner { padding: 12px 16px; }
-   .hero { padding: 56px 16px; }
-   section { padding: 48px 16px; }
-   .footer-grid { grid-template-columns: 1fr; }
-   .footer-bottom { flex-direction: column; }
- }
-
- /* ---------- A11Y ---------- */
- *:focus-visible {
-   outline: 3px solid var(--metro-yellow);
-   outline-offset: 2px;
-   border-radius: 2px;
- }
+  :root {
+    --metro-yellow: #FFCC00;
+    --metro-yellow-hover: #E6B800;
+    --metro-blue: #001E50;
+    --metro-blue-hover: #00306B;
+    --metro-link: #0061A0;
+    --metro-text: #1A1A1A;
+    --metro-text-muted: #5A5A5A;
+    --metro-bg: #FFFFFF;
+    --metro-bg-alt: #F4F4F4;
+    --metro-border: #E1E1E1;
+    --metro-radius: 4px;
+    --metro-radius-lg: 8px;
+    --metro-shadow: 0 2px 8px rgba(0, 30, 80, 0.08);
+    --metro-shadow-lg: 0 8px 32px rgba(0, 30, 80, 0.16);
+    --metro-font: "Inter", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--metro-font);
+    color: var(--metro-text);
+    background-color: var(--metro-bg);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--metro-yellow);
+    color: var(--metro-blue);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--metro-font);
+    color: var(--metro-blue);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.6em;
+  }
+
+  h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+  h2 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); }
+  h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); font-weight: 700; }
+
+  p { margin: 0 0 1em; }
+
+  a {
+    color: var(--metro-link);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  a:hover { color: var(--metro-blue); text-decoration: underline; }
+
+  img { max-width: 100%; height: auto; display: block; }
+
+  .site-header {
+    background: #fff;
+    border-bottom: 1px solid var(--metro-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo img { height: 32px; }
+
+  .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .main-nav a {
+    color: var(--metro-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 0;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background-color: var(--metro-yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+  .main-nav a:hover::after,
+  .main-nav a:focus-visible::after { transform: scaleX(1); }
+
+  .header-utils {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .header-utils button,
+  .header-utils a {
+    background: none;
+    border: none;
+    color: var(--metro-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 8px;
+    font-family: inherit;
+  }
+
+  .lang-switch {
+    border: 1px solid var(--metro-border) !important;
+    border-radius: var(--metro-radius);
+    padding: 6px 12px !important;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--metro-blue) 0%, #002a6b 100%);
+    color: #fff;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: var(--metro-yellow);
+    opacity: 0.08;
+    border-radius: 50%;
+  }
+
+  .hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--metro-yellow);
+    color: var(--metro-blue);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: var(--metro-radius);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .hero h1 {
+    color: #fff;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.15rem;
+    max-width: 680px;
+    margin-bottom: 32px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: var(--metro-radius);
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    line-height: 1.2;
+  }
+
+  .btn-primary {
+    background: var(--metro-yellow);
+    border-color: var(--metro-yellow);
+    color: var(--metro-blue);
+  }
+  .btn-primary:hover {
+    background: var(--metro-yellow-hover);
+    border-color: var(--metro-yellow-hover);
+    color: var(--metro-blue);
+    text-decoration: none;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border-color: #fff;
+    color: #fff;
+  }
+  .btn-secondary:hover {
+    background: #fff;
+    color: var(--metro-blue);
+    text-decoration: none;
+  }
+
+  section {
+    padding: 64px 24px;
+  }
+
+  .section-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .section-header h2 {
+    margin: 0;
+  }
+
+  .section-header h2::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 4px;
+    background: var(--metro-yellow);
+    margin-bottom: 16px;
+  }
+
+  .section-link {
+    color: var(--metro-blue);
+    font-weight: 700;
+    position: relative;
+    padding-right: 22px;
+  }
+  .section-link::after {
+    content: "→";
+    position: absolute;
+    right: 0;
+    transition: transform 0.15s ease;
+  }
+  .section-link:hover::after { transform: translateX(4px); }
+
+  .teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .teaser {
+    background: #fff;
+    border-radius: var(--metro-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--metro-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .teaser:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--metro-shadow-lg);
+  }
+
+  .teaser-img {
+    aspect-ratio: 16 / 10;
+    background: var(--metro-bg-alt);
+    overflow: hidden;
+  }
+
+  .teaser-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .teaser:hover .teaser-img img { transform: scale(1.04); }
+
+  .teaser-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .teaser-tag {
+    display: inline-block;
+    color: var(--metro-blue);
+    background: var(--metro-yellow);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    align-self: flex-start;
+  }
+
+  .teaser h3 {
+    margin: 0 0 12px;
+    font-size: 1.25rem;
+  }
+
+  .teaser p {
+    color: var(--metro-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .teaser-link {
+    color: var(--metro-blue);
+    font-weight: 700;
+    font-size: 0.9rem;
+    position: relative;
+    padding-right: 20px;
+    align-self: flex-start;
+  }
+  .teaser-link::after {
+    content: "→";
+    position: absolute;
+    right: 0;
+    transition: transform 0.15s ease;
+  }
+  .teaser-link:hover::after { transform: translateX(4px); }
+
+  .about {
+    background: var(--metro-bg-alt);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .about-links {
+    list-style: none;
+    margin: 24px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .about-links a {
+    display: inline-block;
+    background: #fff;
+    border: 2px solid var(--metro-blue);
+    color: var(--metro-blue);
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: var(--metro-radius);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .about-links a:hover {
+    background: var(--metro-blue);
+    color: #fff;
+  }
+
+  .about-image {
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, var(--metro-yellow) 0%, #FFE066 100%);
+    border-radius: var(--metro-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--metro-blue);
+    font-size: 8rem;
+    font-weight: 900;
+    box-shadow: var(--metro-shadow-lg);
+  }
+
+  .facts {
+    background: var(--metro-blue);
+    color: #fff;
+  }
+
+  .facts h2 { color: #fff; }
+  .facts h2::before { background: var(--metro-yellow); }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .fact-item {
+    border-left: 3px solid var(--metro-yellow);
+    padding-left: 20px;
+  }
+
+  .fact-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--metro-yellow);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .fact-label {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+  }
+
+  .site-footer {
+    background: var(--metro-blue);
+    color: #fff;
+    padding: 64px 24px 24px;
+  }
+
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand img {
+    height: 32px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-brand p {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.9rem;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    color: var(--metro-yellow);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+  .footer-col a:hover {
+    color: var(--metro-yellow);
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .footer-bottom-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 900px) {
+    .main-nav { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+
+  @media (max-width: 600px) {
+    .header-inner { padding: 12px 16px; }
+    .hero { padding: 56px 16px; }
+    section { padding: 48px 16px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; }
+  }
+
+  *:focus-visible {
+    outline: 3px solid var(--metro-yellow);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 </style>
-
 </head>
 <body>
 
 <header class="site-header">
-<div class="header-inner">
-<a href="#" class="logo" aria-label="METRO Startseite">
-<img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg?rev=139269df-1a50-4ca0-a804-a16cbb2b3e1e" alt="METRO">
-</a>
-<nav class="main-nav" aria-label="Hauptnavigation">
-<ul>
-<li><a href="#ueber-uns">Über uns</a></li>
-<li><a href="#investoren">Investoren</a></li>
-<li><a href="#verantwortung">Verantwortung</a></li>
-<li><a href="#newsroom">Newsroom</a></li>
-<li><a href="#karriere">Karriere</a></li>
-</ul>
-</nav>
-<div class="header-utils">
-<a href="#kontakt">Kontakt</a>
-<button aria-label="Suche öffnen">🔍</button>
-<button class="lang-switch">DE</button>
-</div>
-</div>
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="METRO Startseite">
+      <img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg?rev=139269df-1a50-4ca0-a804-a16cbb2b3e1e" alt="METRO">
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#investoren">Investoren</a></li>
+        <li><a href="#verantwortung">Verantwortung</a></li>
+        <li><a href="#newsroom">Newsroom</a></li>
+        <li><a href="#karriere">Karriere</a></li>
+      </ul>
+    </nav>
+    <div class="header-utils">
+      <a href="#kontakt">Kontakt</a>
+      <button aria-label="Suche öffnen">🔍</button>
+      <button class="lang-switch">DE</button>
+    </div>
+  </div>
 </header>
 
 <section class="hero">
-<div class="hero-inner">
-<span class="hero-eyebrow">Großhandel</span>
-<h1>Großhandel ist unsere Leidenschaft.</h1>
-<p>Seit 60 Jahren sind wir die erste Adresse für professionelle Kunden, die bei Lebensmitteln Wert auf hohe Qualität sowie attraktive Sortimente und Preise legen.</p>
-<div class="hero-cta">
-<a href="#ueber-uns" class="btn btn-primary">Mehr über METRO</a>
-<a href="#stories" class="btn btn-secondary">METRO Stories</a>
-</div>
-</div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Großhandel</span>
+    <h1>Großhandel ist unsere Leidenschaft.</h1>
+    <p>Seit 60 Jahren sind wir die erste Adresse für professionelle Kunden, die bei Lebensmitteln Wert auf hohe Qualität sowie attraktive Sortimente und Preise legen.</p>
+    <div class="hero-cta">
+      <a href="#ueber-uns" class="btn btn-primary">Mehr über METRO</a>
+      <a href="#stories" class="btn btn-secondary">METRO Stories</a>
+    </div>
+  </div>
 </section>
 
 <section id="stories">
-<div class="section-inner">
-<div class="section-header">
-<h2>METRO Stories</h2>
-<a href="#" class="section-link">Mehr Stories</a>
-</div>
-<div class="teaser-grid">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>METRO Stories</h2>
+      <a href="#" class="section-link">Mehr Stories</a>
+    </div>
+    <div class="teaser-grid">
 
-```
-<article class="teaser">
-<div class="teaser-img">
-<img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=600&rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6" alt="Herrmann Kräuter">
-</div>
-<div class="teaser-body">
-<span class="teaser-tag">Lieferant</span>
-<h3>Wurzeln mit Zukunft</h3>
-<p>Tradition trifft Technik: Wie Familie Herrmann Profi-Kräuter für METRO anbaut – nachhaltig, präzise und mit Liebe fürs Produkt.</p>
-<a href="#" class="teaser-link">Story lesen</a>
-</div>
-</article>
+      <article class="teaser">
+        <div class="teaser-img">
+          <img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-herrmann-kraeuter-21.jpg?w=600&rev=2b46a34b-74fb-4cf1-b0a4-d886a9d79cf6" alt="Herrmann Kräuter">
+        </div>
+        <div class="teaser-body">
+          <span class="teaser-tag">Lieferant</span>
+          <h3>Wurzeln mit Zukunft</h3>
+          <p>Tradition trifft Technik: Wie Familie Herrmann Profi-Kräuter für METRO anbaut – nachhaltig, präzise und mit Liebe fürs Produkt.</p>
+          <a href="#" class="teaser-link">Story lesen</a>
+        </div>
+      </article>
 
-<article class="teaser">
-<div class="teaser-img">
-<img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=600&rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4" alt="DISH POS">
-</div>
-<div class="teaser-body">
-<span class="teaser-tag">Gastronomie</span>
-<h3>Konzentration auf das, was wirklich zählt</h3>
-<p>DISH POS hilft Gastronomen, sich auf das Wesentliche zu konzentrieren, denn das cloudbasierte Kassensystem spart Zeit.</p>
-<a href="#" class="teaser-link">Story lesen</a>
-</div>
-</article>
+      <article class="teaser">
+        <div class="teaser-img">
+          <img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-dish-pos-kir-dinerxbar-sa-21.jpg?w=600&rev=8f9de30b-9b33-468a-b182-7cbbec0e4cd4" alt="DISH POS">
+        </div>
+        <div class="teaser-body">
+          <span class="teaser-tag">Gastronomie</span>
+          <h3>Konzentration auf das, was wirklich zählt</h3>
+          <p>DISH POS hilft Gastronomen, sich auf das Wesentliche zu konzentrieren, denn das cloudbasierte Kassensystem spart Zeit.</p>
+          <a href="#" class="teaser-link">Story lesen</a>
+        </div>
+      </article>
 
-<article class="teaser">
-<div class="teaser-img">
-<img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=600&rev=42dfafc4-573a-4069-add5-fffc83636c78" alt="METRO & CÉMOI">
-</div>
-<div class="teaser-body">
-<span class="teaser-tag">Nachhaltigkeit</span>
-<h3>Nachhaltiger Kakao: METRO & CÉMOI</h3>
-<p>Schokolade ist auf der ganzen Welt beliebt – aber die wichtigste Frage bleibt: Wo kommt der Kakao her und wie wird er hergestellt?</p>
-<a href="#" class="teaser-link">Story lesen</a>
-</div>
-</article>
+      <article class="teaser">
+        <div class="teaser-img">
+          <img src="https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/teasers/mpulse-metro-cemoi-cocoa-sa-21.jpg?w=600&rev=42dfafc4-573a-4069-add5-fffc83636c78" alt="METRO & CÉMOI">
+        </div>
+        <div class="teaser-body">
+          <span class="teaser-tag">Nachhaltigkeit</span>
+          <h3>Nachhaltiger Kakao: METRO & CÉMOI</h3>
+          <p>Schokolade ist auf der ganzen Welt beliebt – aber die wichtigste Frage bleibt: Wo kommt der Kakao her und wie wird er hergestellt?</p>
+          <a href="#" class="teaser-link">Story lesen</a>
+        </div>
+      </article>
 
-</div>
-```
-
-</div>
+    </div>
+  </div>
 </section>
 
 <section class="about" id="ueber-uns">
-<div class="section-inner">
-<div class="about-grid">
-<div>
-<h2>METRO steht für Großhandel</h2>
-<p>Großhandel ist unsere Leidenschaft. Seit 60 Jahren sind wir die erste Adresse für professionelle Kunden, die bei Lebensmitteln Wert auf hohe Qualität sowie attraktive Sortimente und Preise legen. Egal ob es sich um Hotels, Restaurants, Cafés oder kleine Lebensmittelhändler handelt.</p>
-<p>Wir verbinden unsere stationären Märkte mit einem starken Belieferungsservice und digitalen Lösungen zu einem einzigartigen Multichannel-Geschäftsmodell.</p>
-<ul class="about-links">
-<li><a href="#">Über uns</a></li>
-<li><a href="#">Strategie</a></li>
-<li><a href="#">Marken</a></li>
-</ul>
-</div>
-<div class="about-image" aria-hidden="true">M</div>
-</div>
-</div>
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <h2>METRO steht für Großhandel</h2>
+        <p>Großhandel ist unsere Leidenschaft. Seit 60 Jahren sind wir die erste Adresse für professionelle Kunden, die bei Lebensmitteln Wert auf hohe Qualität sowie attraktive Sortimente und Preise legen. Egal ob es sich um Hotels, Restaurants, Cafés oder kleine Lebensmittelhändler handelt.</p>
+        <p>Wir verbinden unsere stationären Märkte mit einem starken Belieferungsservice und digitalen Lösungen zu einem einzigartigen Multichannel-Geschäftsmodell.</p>
+        <ul class="about-links">
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Strategie</a></li>
+          <li><a href="#">Marken</a></li>
+        </ul>
+      </div>
+      <div class="about-image" aria-hidden="true">M</div>
+    </div>
+  </div>
 </section>
 
 <section class="facts">
-<div class="section-inner">
-<div class="section-header">
-<h2>METRO in Zahlen</h2>
-</div>
-<div class="facts-grid">
-<div class="fact-item">
-<div class="fact-number">60+</div>
-<div class="fact-label">Jahre Großhandelserfahrung</div>
-</div>
-<div class="fact-item">
-<div class="fact-number">30+</div>
-<div class="fact-label">Länder weltweit</div>
-</div>
-<div class="fact-item">
-<div class="fact-number">17M</div>
-<div class="fact-label">Professionelle Kunden</div>
-</div>
-<div class="fact-item">
-<div class="fact-number">93k</div>
-<div class="fact-label">Mitarbeitende</div>
-</div>
-</div>
-</div>
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>METRO in Zahlen</h2>
+    </div>
+    <div class="facts-grid">
+      <div class="fact-item">
+        <div class="fact-number">60+</div>
+        <div class="fact-label">Jahre Großhandelserfahrung</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-number">30+</div>
+        <div class="fact-label">Länder weltweit</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-number">17M</div>
+        <div class="fact-label">Professionelle Kunden</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-number">93k</div>
+        <div class="fact-label">Mitarbeitende</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="newsroom">
-<div class="section-inner">
-<div class="section-header">
-<h2>Pressemitteilungen und Updates</h2>
-<a href="#" class="section-link">Alle News</a>
-</div>
-<div class="teaser-grid">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Pressemitteilungen und Updates</h2>
+      <a href="#" class="section-link">Alle News</a>
+    </div>
+    <div class="teaser-grid">
 
-```
-<article class="teaser">
-<div class="teaser-body">
-<span class="teaser-tag">Termin</span>
-<h3>Jahrespressekonferenz 2025</h3>
-<p>04. Dezember 2025 — Erfahren Sie mehr über die Geschäftsentwicklung und Strategie der METRO AG.</p>
-<a href="#" class="teaser-link">Mehr erfahren</a>
-</div>
-</article>
+      <article class="teaser">
+        <div class="teaser-body">
+          <span class="teaser-tag">Termin</span>
+          <h3>Jahrespressekonferenz 2025</h3>
+          <p>04. Dezember 2025 — Erfahren Sie mehr über die Geschäftsentwicklung und Strategie der METRO AG.</p>
+          <a href="#" class="teaser-link">Mehr erfahren</a>
+        </div>
+      </article>
 
-<article class="teaser">
-<div class="teaser-body">
-<span class="teaser-tag">Publikation</span>
-<h3>Geschäftsbericht 2024/25</h3>
-<p>Der vollständige Geschäftsbericht steht zum Download bereit.</p>
-<a href="#" class="teaser-link">Download</a>
-</div>
-</article>
+      <article class="teaser">
+        <div class="teaser-body">
+          <span class="teaser-tag">Publikation</span>
+          <h3>Geschäftsbericht 2024/25</h3>
+          <p>Der vollständige Geschäftsbericht steht zum Download bereit.</p>
+          <a href="#" class="teaser-link">Download</a>
+        </div>
+      </article>
 
-<article class="teaser">
-<div class="teaser-body">
-<span class="teaser-tag">Pressemitteilung</span>
-<h3>Vorstandsverträge bis 2030 verlängert</h3>
-<p>Der Aufsichtsrat der METRO AG hat die Vorstandsverträge bis 2030 verlängert.</p>
-<a href="#" class="teaser-link">Weiterlesen</a>
-</div>
-</article>
+      <article class="teaser">
+        <div class="teaser-body">
+          <span class="teaser-tag">Pressemitteilung</span>
+          <h3>Vorstandsverträge bis 2030 verlängert</h3>
+          <p>Der Aufsichtsrat der METRO AG hat die Vorstandsverträge bis 2030 verlängert.</p>
+          <a href="#" class="teaser-link">Weiterlesen</a>
+        </div>
+      </article>
 
-</div>
-```
-
-</div>
+    </div>
+  </div>
 </section>
 
 <footer class="site-footer">
-<div class="footer-inner">
-<div class="footer-grid">
+  <div class="footer-inner">
+    <div class="footer-grid">
 
-```
-<div class="footer-brand">
-<img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full-white_facelift.svg?rev=54721fe9-023c-410e-a3f1-cc8cbd8a0b81" alt="METRO">
-<p>METRO ist ein führender internationaler Lebensmittelgroßhändler, spezialisiert auf HoReCa und Traders.</p>
-</div>
+      <div class="footer-brand">
+        <img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full-white_facelift.svg?rev=54721fe9-023c-410e-a3f1-cc8cbd8a0b81" alt="METRO">
+        <p>METRO ist ein führender internationaler Lebensmittelgroßhändler, spezialisiert auf HoReCa und Traders.</p>
+      </div>
 
-<div class="footer-col">
-<h4>Über uns</h4>
-<ul>
-<li><a href="#">Strategie</a></li>
-<li><a href="#">Marken</a></li>
-<li><a href="#">Vorstand</a></li>
-<li><a href="#">Aufsichtsrat</a></li>
-<li><a href="#">Compliance</a></li>
-</ul>
-</div>
+      <div class="footer-col">
+        <h4>Über uns</h4>
+        <ul>
+          <li><a href="#">Strategie</a></li>
+          <li><a href="#">Marken</a></li>
+          <li><a href="#">Vorstand</a></li>
+          <li><a href="#">Aufsichtsrat</a></li>
+          <li><a href="#">Compliance</a></li>
+        </ul>
+      </div>
 
-<div class="footer-col">
-<h4>Investoren</h4>
-<ul>
-<li><a href="#">Anleihen</a></li>
-<li><a href="#">News</a></li>
-<li><a href="#">Veranstaltungen</a></li>
-<li><a href="#">Downloads</a></li>
-</ul>
-</div>
+      <div class="footer-col">
+        <h4>Investoren</h4>
+        <ul>
+          <li><a href="#">Anleihen</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Veranstaltungen</a></li>
+          <li><a href="#">Downloads</a></li>
+        </ul>
+      </div>
 
-<div class="footer-col">
-<h4>Newsroom</h4>
-<ul>
-<li><a href="#">News</a></li>
-<li><a href="#">Termine</a></li>
-<li><a href="#">Publikationen</a></li>
-</ul>
-</div>
+      <div class="footer-col">
+        <h4>Newsroom</h4>
+        <ul>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Termine</a></li>
+          <li><a href="#">Publikationen</a></li>
+        </ul>
+      </div>
 
-<div class="footer-col">
-<h4>Karriere</h4>
-<ul>
-<li><a href="#">Stellenangebote</a></li>
-<li><a href="#">Arbeiten bei METRO</a></li>
-<li><a href="#">Junge Talente</a></li>
-</ul>
-</div>
+      <div class="footer-col">
+        <h4>Karriere</h4>
+        <ul>
+          <li><a href="#">Stellenangebote</a></li>
+          <li><a href="#">Arbeiten bei METRO</a></li>
+          <li><a href="#">Junge Talente</a></li>
+        </ul>
+      </div>
 
-</div>
+    </div>
 
-<div class="footer-bottom">
-<span>© 2025 METRO AG</span>
-<ul class="footer-bottom-links">
-<li><a href="#">Impressum</a></li>
-<li><a href="#">Datenschutz</a></li>
-<li><a href="#">Nutzungsbedingungen</a></li>
-<li><a href="#">Kontakt</a></li>
-</ul>
-</div>
-```
-
-</div>
+    <div class="footer-bottom">
+      <span>© 2025 METRO AG</span>
+      <ul class="footer-bottom-links">
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">Nutzungsbedingungen</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
 </body>
