@@ -1,715 +1,254 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>METRO Sammelstelle – Kontoregistrierung</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --metro-blue: #003D7A;
-    --metro-blue-dark: #002855;
-    --metro-blue-light: #0055A4;
-    --metro-yellow: #FFCC00;
-    --metro-yellow-dark: #E6B800;
-    --ink: #1a1a1a;
-    --ash: #6b7280;
-    --line: #e5e7eb;
-    --bg: #f5f6f8;
-    --white: #ffffff;
-  }
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Konto erstellen – METRO Partner Portal</title>
 
-- { box-sizing: border-box; margin: 0; padding: 0; }
+  <!-- =========================================================
+       1) ONETRUST REQUIRED SCRIPTS — DO NOT MODIFY
+  ========================================================== -->
 
-html, body {
-font-family: ‘Barlow’, sans-serif;
-background: var(–bg);
-color: var(–ink);
-min-height: 100vh;
--webkit-font-smoothing: antialiased;
-}
+  <script>
+    window.OtSdk = window.OtSdk || function () {
+      (OtSdk.q = OtSdk.q || []).push(arguments);
+    };
+  </script>
 
-/* Top brand bar */
-.topbar {
-background: var(–metro-blue);
-height: 6px;
-width: 100%;
-position: relative;
-overflow: hidden;
-}
-.topbar::after {
-content: ‘’;
-position: absolute;
-top: 0; right: 0;
-width: 35%;
-height: 100%;
-background: var(–metro-yellow);
-}
+  <script
+    src="https://privacyportaltrial.onetrust.com/consent-embedded-forms/consent-receipt-scripts/OtFormStub.js"
+    data-id="db31dbf8-b2d1-4cfd-9927-ae1dd124a6dd"
+    worker="https://consent-api.onetrust.com">
+  </script>
 
-/* Header */
-.header {
-background: var(–white);
-border-bottom: 1px solid var(–line);
-padding: 18px 32px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.logo-block {
-display: flex;
-align-items: center;
-gap: 14px;
-}
+    :root {
+      --metro-blue:        #003D7A;
+      --metro-blue-dark:   #002855;
+      --metro-yellow:      #FFCC00;
+      --metro-bg:          #0f172a;
+      --metro-bg-light:    #1e293b;
+      --metro-card:        #111827;
+      --metro-text:        #ffffff;
+      --metro-muted:       #9ca3af;
+      --metro-border:      rgba(255,255,255,0.08);
+      --metro-font:        Inter, "Helvetica Neue", Arial, sans-serif;
+      --radius:            10px;
+    }
 
-.logo-mark {
-background: var(–metro-yellow);
-color: var(–metro-blue);
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-font-size: 26px;
-letter-spacing: 1px;
-padding: 8px 14px;
-line-height: 1;
-}
+    html, body {
+      background: var(--metro-bg);
+      color: var(--metro-text);
+      font-family: var(--metro-font);
+      min-height: 100vh;
+    }
 
-.logo-text {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 13px;
-letter-spacing: 2px;
-color: var(–metro-blue);
-text-transform: uppercase;
-}
-.logo-text span { display: block; color: var(–ash); font-weight: 600; font-size: 11px; letter-spacing: 1.5px; }
+    /* ── Header ── */
+    header.top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(2,40,85,0.98), rgba(2,40,85,0.9));
+      border-bottom: 1px solid var(--metro-border);
+    }
 
-.header-meta {
-display: flex;
-gap: 28px;
-align-items: center;
-font-size: 13px;
-color: var(–ash);
-}
-.header-meta strong { color: var(–metro-blue); font-weight: 700; }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      height: 72px;
+      padding: 0 32px;
+      gap: 16px;
+    }
 
-/* Main layout */
-.layout {
-max-width: 1180px;
-margin: 0 auto;
-padding: 40px 32px 60px;
-display: grid;
-grid-template-columns: 320px 1fr;
-gap: 40px;
-}
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* Sidebar */
-.sidebar {
-position: sticky;
-top: 32px;
-height: fit-content;
-}
+    .metro-logo {
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: 1px;
+      background: var(--metro-yellow);
+      color: var(--metro-blue);
+      padding: 6px 10px;
+    }
 
-.sidebar-card {
-background: var(–metro-blue);
-color: var(–white);
-padding: 32px 28px;
-position: relative;
-overflow: hidden;
-}
-.sidebar-card::before {
-content: ‘’;
-position: absolute;
-top: 0; left: 0;
-width: 6px;
-height: 100%;
-background: var(–metro-yellow);
-}
+    .brand-subtitle {
+      font-size: 18px;
+      font-weight: 700;
+    }
 
-.sidebar-eyebrow {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-size: 12px;
-letter-spacing: 2.5px;
-color: var(–metro-yellow);
-font-weight: 700;
-text-transform: uppercase;
-margin-bottom: 12px;
-}
+    .back-link {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--metro-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+    }
 
-.sidebar-title {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-size: 28px;
-font-weight: 800;
-line-height: 1.05;
-text-transform: uppercase;
-margin-bottom: 16px;
-}
+    .back-link:hover { color: var(--metro-text); }
 
-.sidebar-text {
-font-size: 14px;
-line-height: 1.55;
-color: rgba(255,255,255,0.85);
-margin-bottom: 28px;
-}
+    /* ── Page ── */
+    .page-wrapper {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      justify-content: center;
+      padding: 56px 24px 80px;
+      background: radial-gradient(circle at 70% 0%, rgba(255,204,0,0.06), transparent 55%);
+    }
 
-.steps {
-list-style: none;
-border-top: 1px solid rgba(255,255,255,0.15);
-}
-.steps li {
-display: flex;
-gap: 14px;
-padding: 14px 0;
-border-bottom: 1px solid rgba(255,255,255,0.15);
-font-size: 14px;
-align-items: center;
-}
-.step-num {
-width: 26px; height: 26px;
-background: rgba(255,255,255,0.1);
-color: var(–white);
-font-weight: 700;
-font-size: 13px;
-display: flex; align-items: center; justify-content: center;
-flex-shrink: 0;
-}
-.step-num.active { background: var(–metro-yellow); color: var(–metro-blue); }
-.steps li.active { color: var(–white); font-weight: 600; }
-.steps li.done .step-num { background: rgba(255,204,0,0.25); color: var(–metro-yellow); }
+    .card {
+      background: var(--metro-card);
+      border: 1px solid var(--metro-border);
+      border-radius: 16px;
+      padding: 48px;
+      width: 100%;
+      max-width: 560px;
+    }
 
-.help-box {
-margin-top: 24px;
-padding: 18px 20px;
-background: var(–white);
-border-left: 4px solid var(–metro-yellow);
-}
-.help-box-title {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-size: 14px;
-font-weight: 700;
-color: var(–metro-blue);
-text-transform: uppercase;
-letter-spacing: 1.5px;
-margin-bottom: 6px;
-}
-.help-box p { font-size: 13px; color: var(–ash); line-height: 1.5; }
-.help-box a { color: var(–metro-blue); font-weight: 600; text-decoration: none; }
+    .card-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--metro-yellow);
+      margin-bottom: 10px;
+    }
 
-/* Main content */
-.main {
-background: var(–white);
-padding: 0;
-border: 1px solid var(–line);
-}
+    .card-title {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
 
-.main-header {
-padding: 36px 44px 28px;
-border-bottom: 2px solid var(–metro-blue);
-position: relative;
-}
-.main-header::after {
-content: ‘’;
-position: absolute;
-bottom: -2px; left: 0;
-width: 80px;
-height: 2px;
-background: var(–metro-yellow);
-}
+    .card-subtitle {
+      font-size: 14px;
+      color: var(--metro-muted);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
 
-.breadcrumb {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-size: 12px;
-letter-spacing: 2px;
-color: var(–ash);
-text-transform: uppercase;
-margin-bottom: 12px;
-}
-.breadcrumb strong { color: var(–metro-blue); }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--metro-muted);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--metro-border);
+    }
 
-h1 {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-size: 38px;
-font-weight: 800;
-line-height: 1;
-text-transform: uppercase;
-color: var(–metro-blue);
-letter-spacing: -0.5px;
-}
-h1 span { color: var(–metro-yellow-dark); }
+    .divider {
+      height: 1px;
+      background: var(--metro-border);
+      margin: 32px 0;
+    }
 
-.subtitle {
-margin-top: 10px;
-font-size: 15px;
-color: var(–ash);
-max-width: 560px;
-}
+    .card-footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--metro-muted);
+    }
 
-/* Form */
-form { padding: 36px 44px 44px; }
+    .card-footer a {
+      color: var(--metro-yellow);
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-.section {
-margin-bottom: 36px;
-}
+    #ot-container { margin-top: 6px; }
 
-.section-label {
-display: flex;
-align-items: center;
-gap: 12px;
-margin-bottom: 20px;
-}
-.section-num {
-background: var(–metro-blue);
-color: var(–metro-yellow);
-width: 30px; height: 30px;
-display: flex; align-items: center; justify-content: center;
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-font-size: 16px;
-}
-.section-title {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-size: 20px;
-font-weight: 700;
-text-transform: uppercase;
-letter-spacing: 1px;
-color: var(–metro-blue);
-}
-.section-line {
-flex: 1;
-height: 1px;
-background: var(–line);
-}
+    /* Submit button override */
+    .ot-submit {
+      background: var(--metro-yellow) !important;
+      color: var(--metro-blue) !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.5px !important;
+    }
 
-.grid-2 {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 18px;
-}
-.grid-3 {
-display: grid;
-grid-template-columns: 1.5fr 1fr 1fr;
-gap: 18px;
-}
+    .ot-submit:hover {
+      background: var(--metro-blue) !important;
+      color: var(--metro-yellow) !important;
+    }
 
-.field { margin-bottom: 18px; }
-.field-full { grid-column: 1 / -1; }
-
-label {
-display: block;
-font-size: 12px;
-font-weight: 600;
-letter-spacing: 0.5px;
-color: var(–ink);
-margin-bottom: 7px;
-text-transform: uppercase;
-}
-label .req { color: #d32f2f; margin-left: 2px; }
-
-input[type=“text”], input[type=“email”], input[type=“tel”], select, textarea {
-width: 100%;
-padding: 12px 14px;
-border: 1.5px solid var(–line);
-background: var(–white);
-font-family: ‘Barlow’, sans-serif;
-font-size: 14px;
-color: var(–ink);
-transition: border-color 0.15s, box-shadow 0.15s;
-}
-input:focus, select:focus, textarea:focus {
-outline: none;
-border-color: var(–metro-blue);
-box-shadow: 0 0 0 3px rgba(0,61,122,0.1);
-}
-
-.hint { font-size: 12px; color: var(–ash); margin-top: 6px; }
-
-/* Collection point type cards */
-.type-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 12px;
-}
-.type-card {
-border: 1.5px solid var(–line);
-padding: 18px 16px;
-cursor: pointer;
-transition: all 0.15s;
-background: var(–white);
-position: relative;
-}
-.type-card:hover { border-color: var(–metro-blue); }
-.type-card input { position: absolute; opacity: 0; }
-.type-card input:checked + .type-content { color: var(–metro-blue); }
-.type-card:has(input:checked) {
-border-color: var(–metro-blue);
-background: #f0f6fd;
-}
-.type-card:has(input:checked)::after {
-content: ‘✓’;
-position: absolute;
-top: 10px; right: 12px;
-width: 20px; height: 20px;
-background: var(–metro-yellow);
-color: var(–metro-blue);
-display: flex; align-items: center; justify-content: center;
-font-weight: 800;
-font-size: 13px;
-}
-
-.type-icon {
-width: 36px; height: 36px;
-background: var(–metro-blue);
-color: var(–metro-yellow);
-display: flex; align-items: center; justify-content: center;
-margin-bottom: 12px;
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-}
-.type-card:has(input:checked) .type-icon { background: var(–metro-yellow); color: var(–metro-blue); }
-
-.type-name {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 15px;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-margin-bottom: 4px;
-}
-.type-desc { font-size: 12px; color: var(–ash); line-height: 1.4; }
-
-/* Checkbox */
-.checkbox-row {
-display: flex;
-gap: 12px;
-align-items: flex-start;
-padding: 14px 16px;
-background: var(–bg);
-border-left: 3px solid var(–metro-yellow);
-margin-bottom: 10px;
-}
-.checkbox-row input { margin-top: 3px; accent-color: var(–metro-blue); }
-.checkbox-row label {
-font-size: 13px;
-text-transform: none;
-font-weight: 500;
-letter-spacing: 0;
-color: var(–ink);
-line-height: 1.5;
-margin-bottom: 0;
-cursor: pointer;
-}
-.checkbox-row a { color: var(–metro-blue); font-weight: 600; }
-
-/* Submit */
-.actions {
-margin-top: 32px;
-padding-top: 28px;
-border-top: 1px solid var(–line);
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 16px;
-}
-
-.btn-primary {
-background: var(–metro-yellow);
-color: var(–metro-blue);
-border: none;
-padding: 16px 36px;
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-font-size: 16px;
-letter-spacing: 1.5px;
-text-transform: uppercase;
-cursor: pointer;
-transition: all 0.15s;
-display: inline-flex;
-align-items: center;
-gap: 12px;
-}
-.btn-primary:hover { background: var(–metro-blue); color: var(–metro-yellow); }
-.btn-primary .arrow { font-size: 18px; }
-
-.btn-secondary {
-background: transparent;
-color: var(–metro-blue);
-border: 1.5px solid var(–metro-blue);
-padding: 14px 26px;
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-text-transform: uppercase;
-cursor: pointer;
-}
-.btn-secondary:hover { background: var(–metro-blue); color: var(–white); }
-
-/* Footer */
-.footer {
-background: var(–metro-blue-dark);
-color: rgba(255,255,255,0.7);
-padding: 24px 32px;
-font-size: 12px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top: 40px;
-}
-.footer a { color: var(–metro-yellow); text-decoration: none; margin-left: 18px; }
-
-@media (max-width: 880px) {
-.layout { grid-template-columns: 1fr; }
-.sidebar { position: static; }
-.grid-2, .grid-3, .type-grid { grid-template-columns: 1fr; }
-form, .main-header { padding: 28px 24px; }
-h1 { font-size: 28px; }
-}
-</style>
-
+    @media (max-width: 640px) {
+      .card { padding: 28px 20px; }
+      .top-bar-inner { padding: 0 16px; }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="topbar"></div>
-
-<header class="header">
-  <div class="logo-block">
-    <div class="logo-mark">METRO</div>
-    <div class="logo-text">
-      Sammelstellen-Portal
-      <span>Partner Registration</span>
-    </div>
-  </div>
-  <div class="header-meta">
-    <span>Hilfe benötigt? <strong>+49 211 6886-0</strong></span>
-    <span>DE · <strong>Deutsch</strong></span>
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <a href="/" class="logo-link">
+      <div class="metro-logo">METRO</div>
+      <div class="brand-subtitle">Partner Portal</div>
+    </a>
+    <a href="/" class="back-link">← Zurück</a>
   </div>
 </header>
 
-<div class="layout">
+<div class="page-wrapper">
+  <div class="card">
+    <div class="card-eyebrow">METRO · Partner</div>
+    <h1 class="card-title">Konto erstellen</h1>
+    <p class="card-subtitle">
+      Erstellen Sie Ihr METRO Partnerkonto, um Ihre Sammelstelle oder Organisation zu registrieren und zu verwalten.
+    </p>
 
-  <aside class="sidebar">
-    <div class="sidebar-card">
-      <div class="sidebar-eyebrow">Schritt 1 von 3</div>
-      <h2 class="sidebar-title">Werden Sie<br>METRO Sammelstellen-Partner</h2>
-      <p class="sidebar-text">Registrieren Sie Ihre Sammelstelle und werden Sie Teil des deutschlandweiten METRO Netzwerks für nachhaltige Wertstoffrückgabe.</p>
+    <div class="section-label">Ihre Daten & Einwilligungen</div>
 
-```
-  <ul class="steps">
-    <li class="active">
-      <span class="step-num active">1</span>
-      Kontoinformationen
-    </li>
-    <li>
-      <span class="step-num">2</span>
-      Standort verifizieren
-    </li>
-    <li>
-      <span class="step-num">3</span>
-      Bestätigung
-    </li>
-  </ul>
+    <!-- OneTrust renders form -->
+    <div id="ot-container"></div>
+
+    <div class="divider"></div>
+
+    <div class="card-footer">
+      Bereits registriert?
+      <a href="/anmelden.html">Jetzt anmelden</a>
+    </div>
+  </div>
 </div>
 
-<div class="help-box">
-  <div class="help-box-title">Brauchen Sie Hilfe?</div>
-  <p>Unser Partner-Service-Team steht Ihnen werktags von 8 – 18 Uhr zur Verfügung.<br><a href="#">support@metro-sammelstelle.de</a></p>
-</div>
-```
+<!-- =========================================================
+     ONETRUST LOADING — DO NOT MODIFY
+========================================================== -->
 
-  </aside>
+<script>
+  const CP_ID = "d54fe0a0-9009-4b48-89d6-3b0dab77d9bb";
 
-  <main class="main">
-    <div class="main-header">
-      <div class="breadcrumb">METRO Partner · <strong>Neue Sammelstelle</strong></div>
-      <h1>Konto<br>für Ihre <span>Sammelstelle</span></h1>
-      <p class="subtitle">Bitte füllen Sie alle Pflichtfelder aus, um Ihre Sammelstelle für das METRO Partnernetzwerk anzumelden. Die Verifizierung dauert in der Regel 2–3 Werktage.</p>
-    </div>
+  function whenOTReady(callback) {
+    const timer = setInterval(() => {
+      if (window.OneTrust && OneTrust.webform?.InstallCP) {
+        clearInterval(timer);
+        callback();
+      }
+    }, 80);
+  }
 
-```
-<form>
-
-  <!-- Section 1 -->
-  <div class="section">
-    <div class="section-label">
-      <div class="section-num">01</div>
-      <div class="section-title">Art der Sammelstelle</div>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="type-grid">
-      <label class="type-card">
-        <input type="radio" name="type" checked>
-        <div class="type-content">
-          <div class="type-icon">M</div>
-          <div class="type-name">METRO Markt</div>
-          <div class="type-desc">Großhandelsstandort mit integrierter Sammelstelle</div>
-        </div>
-      </label>
-      <label class="type-card">
-        <input type="radio" name="type">
-        <div class="type-content">
-          <div class="type-icon">P</div>
-          <div class="type-name">Partner-Standort</div>
-          <div class="type-desc">Externer Geschäftspartner in Kooperation</div>
-        </div>
-      </label>
-      <label class="type-card">
-        <input type="radio" name="type">
-        <div class="type-content">
-          <div class="type-icon">L</div>
-          <div class="type-name">Logistik-Hub</div>
-          <div class="type-desc">Zentrale Sammelstelle für regionale Verteilung</div>
-        </div>
-      </label>
-    </div>
-  </div>
-
-  <!-- Section 2 -->
-  <div class="section">
-    <div class="section-label">
-      <div class="section-num">02</div>
-      <div class="section-title">Unternehmensdaten</div>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="grid-2">
-      <div class="field">
-        <label>Firmenname<span class="req">*</span></label>
-        <input type="text" placeholder="z. B. METRO Düsseldorf GmbH">
-      </div>
-      <div class="field">
-        <label>Handelsregisternummer<span class="req">*</span></label>
-        <input type="text" placeholder="HRB 123456">
-      </div>
-      <div class="field">
-        <label>Umsatzsteuer-ID<span class="req">*</span></label>
-        <input type="text" placeholder="DE 123456789">
-      </div>
-      <div class="field">
-        <label>Branche</label>
-        <select>
-          <option>Lebensmittel-Großhandel</option>
-          <option>Gastronomie</option>
-          <option>Einzelhandel</option>
-          <option>Logistik</option>
-          <option>Sonstige</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 3 -->
-  <div class="section">
-    <div class="section-label">
-      <div class="section-num">03</div>
-      <div class="section-title">Standort der Sammelstelle</div>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="grid-3">
-      <div class="field">
-        <label>Straße<span class="req">*</span></label>
-        <input type="text" placeholder="Metro-Straße">
-      </div>
-      <div class="field">
-        <label>Hausnummer<span class="req">*</span></label>
-        <input type="text" placeholder="1">
-      </div>
-      <div class="field">
-        <label>PLZ<span class="req">*</span></label>
-        <input type="text" placeholder="40235">
-      </div>
-    </div>
-    <div class="grid-2">
-      <div class="field">
-        <label>Stadt<span class="req">*</span></label>
-        <input type="text" placeholder="Düsseldorf">
-      </div>
-      <div class="field">
-        <label>Bundesland<span class="req">*</span></label>
-        <select>
-          <option>Nordrhein-Westfalen</option>
-          <option>Bayern</option>
-          <option>Baden-Württemberg</option>
-          <option>Hessen</option>
-          <option>Berlin</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 4 -->
-  <div class="section">
-    <div class="section-label">
-      <div class="section-num">04</div>
-      <div class="section-title">Ansprechpartner & Zugangsdaten</div>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="grid-2">
-      <div class="field">
-        <label>Vorname<span class="req">*</span></label>
-        <input type="text" placeholder="Max">
-      </div>
-      <div class="field">
-        <label>Nachname<span class="req">*</span></label>
-        <input type="text" placeholder="Mustermann">
-      </div>
-      <div class="field">
-        <label>E-Mail-Adresse<span class="req">*</span></label>
-        <input type="email" placeholder="m.mustermann@firma.de">
-        <div class="hint">Diese E-Mail wird Ihr Login für das Partner-Portal.</div>
-      </div>
-      <div class="field">
-        <label>Telefon<span class="req">*</span></label>
-        <input type="tel" placeholder="+49 211 1234567">
-      </div>
-      <div class="field field-full">
-        <label>Position im Unternehmen</label>
-        <input type="text" placeholder="z. B. Standortleitung, Logistikleitung">
-      </div>
-    </div>
-  </div>
-
-  <!-- Consent -->
-  <div class="section">
-    <div class="checkbox-row">
-      <input type="checkbox" id="agb">
-      <label for="agb">Ich akzeptiere die <a href="#">Allgemeinen Geschäftsbedingungen</a> und die <a href="#">Partnervereinbarung</a> der METRO AG für Sammelstellen-Betreiber.</label>
-    </div>
-    <div class="checkbox-row">
-      <input type="checkbox" id="privacy">
-      <label for="privacy">Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten gemäß DSGVO zu.</label>
-    </div>
-    <div class="checkbox-row">
-      <input type="checkbox" id="news">
-      <label for="news">Ich möchte den METRO Partner-Newsletter mit Updates zu Sammelaktionen und Schulungen erhalten (optional).</label>
-    </div>
-  </div>
-
-  <div class="actions">
-    <button type="button" class="btn-secondary">← Abbrechen</button>
-    <button type="submit" class="btn-primary">Konto erstellen <span class="arrow">→</span></button>
-  </div>
-
-</form>
-```
-
-  </main>
-
-</div>
-
-<footer class="footer">
-  <div>© 2026 METRO AG · Metro-Straße 1 · 40235 Düsseldorf</div>
-  <div>
-    <a href="#">Impressum</a>
-    <a href="#">Datenschutz</a>
-    <a href="#">AGB</a>
-    <a href="#">Kontakt</a>
-  </div>
-</footer>
+  window.addEventListener("DOMContentLoaded", () => {
+    whenOTReady(() => {
+      OneTrust.webform.InstallCP(CP_ID, { target: "#ot-container" });
+    });
+  });
+</script>
 
 </body>
 </html>
