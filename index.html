@@ -287,81 +287,38 @@ body {
             <ul class="main_nav__navi__tree tree_page_2"></ul>
 
             <!-- Helper navigation (FIXED) -->
-            <aside class="main_nav__navi__helper">
-              <ul class="main_nav__navi__helper__tree">
+<aside class="main_nav__navi__helper">
+  <ul class="main_nav__navi__helper__tree">
 
-                <li class="main_nav__navi__helper__tree__item">
-                  https://www.metroag.de/de/kontakt
-                    <span class="ct_title">Kontakt</span>
-                  </a>
-                </li>
+    <!-- Kontakt -->
+    <li class="main_nav__navi__helper__tree__item">
+      <a href="https://www.metroag.de/de/kontakt" title="Kontakt">
+        <span class="ct_title">Kontakt</span>
+      </a>
+    </li>
 
-                <li class="main_nav__navi__helper__tree__item">
-                  <button
-                    class="btn-plain privacy-settings-btn"
-                    type="button"
-                    aria-label="Privacy settings"
-                    onclick="window.dispatchEvent(new Event('openPrivacySettings'))">
-                    Privacy settings
-                  </button>
-                </li>
+    <!-- Privacy settings -->
+    <li class="main_nav__navi__helper__tree__item">
+      <button
+        class="btn-plain privacy-settings-btn"
+        type="button"
+        aria-label="Privacy settings"
+        onclick="window.dispatchEvent(new Event('openPrivacySettings'))">
+        Privacy settings
+      </button>
+    </li>
 
-                <!-- ✅ FIXED: Anmelden -->
-                <li class="main_nav__navi__helper__tree__item">
-                  https://anuschkatmader.github.io/anmelden.html
-                    Anmelden
-                  </a>
-                </li>
+    <!-- ✅ Anmelden (FIXED & CLEAN) -->
+    <li class="main_nav__navi__helper__tree__item">
+      <a href="https://anuschkatmader.github.io/anmelden.html"
+         class="btn btn-primary">
+        Anmelden
+      </a>
+    </li>
 
-                <!-- Search -->
-                <li class="main_nav__navi__helper__tree__item main_nav__page_search header-searchbox">
-                  <div class="component mag-search-box horizontal"
-                       data-properties='{"endpoint":"/de/sxa/search/results/","suggestionEndpoint":"/de/sxa/search/suggestions/","suggestionsMode":"ShowSearchResults","resultPage":"/de/search","p":5}'>
-                    <div class="component-content input-group">
-                      <div class="dropdown main_nav__page_search">
-                        <button class="btn-plain btn-icon-search"
-                                type="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false">
-                          <span class="sr-only">Suche öffnen</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                <!-- Color mode -->
-                <li class="main_nav__navi__helper__tree__item">
-                  <div class="dropdown main_nav__mode_menu">
-                    <button class="btn-plain btn-icon-color-mode"
-                            title="Darstellung wählen"
-                            aria-label="Darstellung wählen"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false">
-                      <span class="sr-only">Darstellung wählen</span>
-                    </button>
-                  </div>
-                </li>
-
-                <!-- Language -->
-                <li class="main_nav__navi__helper__tree__item">
-                  <div class="dropdown main_nav__lang_menu" data-language-code="de" data-country-code="de">
-                    <button title="Sprache auswählen"
-                            aria-label="Sprache auswählen"
-                            type="button"
-                            class="btn-plain"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false">
-                      <span class="icon_language"></span>
-                    </button>
-                  </div>
-                </li>
-
-              </ul>
-            </aside>
+  </ul>
+</aside>
+``
 
           </div>
 
