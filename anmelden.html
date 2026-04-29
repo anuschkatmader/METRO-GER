@@ -8,7 +8,6 @@
   <!-- =========================================================
        ONETRUST REQUIRED SCRIPTS — DO NOT MODIFY
   ========================================================== -->
-
   <script>
     window.OtSdk = window.OtSdk || function () {
       (OtSdk.q = OtSdk.q || []).push(arguments);
@@ -17,254 +16,256 @@
 
   <script
     src="https://privacyportaltrial.onetrust.com/consent-embedded-forms/consent-receipt-scripts/OtFormStub.js"
-    data-id="db31dbf8-b2d1-4cfd-9927-ae1dd124a6dd"
-    worker="https://consent-api.onetrust.com">
-  </script>
+    data-id="89af9315-196c-45ad-88ea-1b8ec3fe5a51"
+    worker="https://consent-api.onetrust.com"
+  ></script>
 
-  <!-- Fonts -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     :root {
       --metro-blue: #003D7A;
       --metro-blue-dark: #002855;
       --metro-yellow: #FFCC00;
-      --metro-bg: #f5f7fa;
-      --metro-bg-card: #ffffff;
-      --metro-text: #0f172a;
-      --metro-muted: #6b7280;
-      --metro-border: #e5e7eb;
-      --metro-font: "Inter", Helvetica, Arial, sans-serif;
-      --radius: 8px;
+      --border: #e5e7eb;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --bg: #f5f7fa;
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     html, body {
-      font-family: var(--metro-font);
-      background: var(--metro-bg);
-      color: var(--metro-text);
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
     }
 
-    /* ── Header ── */
-    header.top-bar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: #ffffff;
-      border-bottom: 1px solid var(--metro-border);
+    /* Header */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
     }
 
-    .top-bar-inner {
-      display: flex;
-      align-items: center;
-      height: 72px;
-      padding: 0 32px;
-      gap: 16px;
+    .header-inner {
       max-width: 1180px;
       margin: 0 auto;
-    }
-
-    .logo-link {
+      padding: 16px 24px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
       text-decoration: none;
-      color: inherit;
-      font-weight: 800;
-      font-size: 18px;
-      letter-spacing: 1px;
     }
 
-    .metro-logo {
-      background: var(--metro-yellow);
-      color: var(--metro-blue);
-      padding: 6px 10px;
-      font-weight: 900;
+    .logo img {
+      height: 28px;
     }
 
-    .brand-subtitle {
+    .logo span {
       font-weight: 700;
       color: var(--metro-blue);
+      letter-spacing: 0.5px;
     }
 
-    .back-link {
+    .back {
       margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--metro-muted);
+      color: var(--muted);
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
     }
 
-    .back-link:hover {
-      color: var(--metro-blue);
-    }
-
-    .back-link svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-    }
-
-    /* ── Layout ── */
-    .page-wrapper {
-      display: flex;
-      justify-content: center;
-      padding: 56px 24px 80px;
-    }
-
-    .card {
-      background: var(--metro-bg-card);
-      border: 1px solid var(--metro-border);
-      border-radius: 14px;
-      padding: 48px;
-      width: 100%;
+    /* Layout */
+    .wrapper {
       max-width: 560px;
+      margin: 48px auto 80px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px;
     }
 
-    .card-eyebrow {
-      font-size: 11px;
+    .eyebrow {
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      letter-spacing: 1.6px;
       color: var(--metro-blue);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
       margin-bottom: 10px;
     }
 
-    .card-title {
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .card-subtitle {
+    .subtitle {
       font-size: 15px;
-      color: var(--metro-muted);
-      margin-bottom: 36px;
-      line-height: 1.6;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 32px;
     }
 
-    .section-label {
-      font-size: 11px;
+    .section-title {
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 1.3px;
       text-transform: uppercase;
-      color: var(--metro-muted);
-      margin-bottom: 18px;
+      letter-spacing: 1.3px;
+      color: var(--muted);
+      margin: 32px 0 16px;
+      border-bottom: 1px solid var(--border);
       padding-bottom: 10px;
-      border-bottom: 1px solid var(--metro-border);
     }
 
-    .divider {
-      height: 1px;
-      background: var(--metro-border);
-      margin: 32px 0;
+    .field {
+      margin-bottom: 14px;
     }
 
-    .card-footer {
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    /* Info box */
+    .info-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--metro-yellow);
+      padding: 16px 18px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 32px;
       text-align: center;
       font-size: 14px;
-      color: var(--metro-muted);
+      color: var(--muted);
     }
 
-    .card-footer a {
+    .footer a {
       color: var(--metro-blue);
       font-weight: 600;
       text-decoration: none;
-    }
-
-    .card-footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* ── OneTrust submit button branding ── */
-    .ot-submit {
-      background: var(--metro-yellow) !important;
-      color: var(--metro-blue) !important;
-      font-weight: 800 !important;
-    }
-
-    .ot-submit:hover {
-      background: var(--metro-blue) !important;
-      color: #ffffff !important;
-    }
-
-    @media (max-width: 640px) {
-      .card {
-        padding: 28px 22px;
-      }
-      .top-bar-inner {
-        padding: 0 16px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- ========== HEADER ========== -->
-<header class="top-bar">
-  <div class="top-bar-inner">
-    /"logo-link">
-      <span class="metro-logo">METRO</span>
-      <span class="brand-subtitle">Partner Portal</span>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <img src="https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg" alt="METRO">
+      <span>Partner Portal</span>
     </a>
-
-    /
-      <svg viewBox="0 0 24 24">
-        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-      </svg>
-      Zurück
-    </a>
+    <a class="back" href="#">Zurück</a>
   </div>
 </header>
 
-<!-- ========== MAIN ========== -->
-<div class="page-wrapper">
-  <div class="card">
+<main class="wrapper">
 
-    <div class="card-eyebrow">METRO · Partner</div>
-    <h1 class="card-title">Konto erstellen</h1>
-    <p class="card-subtitle">
-      Erstellen Sie Ihr METRO‑Partnerkonto, um Ihre Sammelstelle oder Organisation
-      für das METRO Partnernetzwerk zu registrieren.
-    </p>
+  <div class="eyebrow">METRO · Partner</div>
+  <h1>Konto erstellen</h1>
 
-    <div class="section-label">Ihre Daten & Einwilligungen</div>
+  <p class="subtitle">
+    Erstellen Sie ein METRO‑Partnerkonto, um Standorte, Sammelstellen oder
+    Geschäftsbeziehungen im METRO‑Netzwerk zu verwalten.
+  </p>
 
-    <!-- OneTrust renders the form here -->
-    <div id="ot-container"></div>
+  <!-- BEFORE OT: BUSINESS DATA -->
+  <div class="section-title">Unternehmensbezogene Angaben</div>
 
-    <div class="divider"></div>
-
-    <div class="card-footer">
-      Bereits registriert?
-      https://anuschkatmader.github.io/anmelden.htmlJetzt anmelden</a>
-    </div>
-
+  <div class="field">
+    <label>Rolle im Unternehmen</label>
+    <select>
+      <option>Geschäftsführung</option>
+      <option>Einkauf / Category Management</option>
+      <option>Logistik / Supply Chain</option>
+      <option>Nachhaltigkeit / ESG</option>
+      <option>IT / Digitalisierung</option>
+    </select>
   </div>
-</div>
+
+  <div class="field">
+    <label>Geschäftsbeziehung zu METRO</label>
+    <select>
+      <option>Lieferant</option>
+      <option>Logistikpartner</option>
+      <option>Sammelstellenbetreiber</option>
+      <option>Service‑ & Technologiepartner</option>
+      <option>Interessent (noch keine Beziehung)</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Land / Hauptmarkt</label>
+    <input type="text" placeholder="z. B. Deutschland">
+  </div>
+
+  <div class="info-box">
+    Die folgenden Einwilligungen sind erforderlich, um Ihr Partnerkonto bereitzustellen,
+    regulatorische Anforderungen zu erfüllen und die Zusammenarbeit mit METRO zu ermöglichen.
+  </div>
+
+  <!-- OT WEBFORM -->
+  <div class="section-title">Ihre Daten & Einwilligungen</div>
+  <div id="ot-container"></div>
+
+  <!-- AFTER OT: PURPOSE EXAMPLES -->
+  <div class="section-title">Verwendungszwecke (Beispiele)</div>
+
+  <div class="info-box">
+    METRO verarbeitet Ihre Daten insbesondere für:
+    <ul style="margin-top:8px; padding-left:18px;">
+      <li>Partner‑ & Vertragsmanagement</li>
+      <li>Lieferanten‑ und Standortkommunikation</li>
+      <li>Erfüllung gesetzlicher Nachweis‑ und Compliance‑Pflichten</li>
+      <li>Nachhaltigkeits‑ & ESG‑Berichterstattung</li>
+      <li>IT‑Sicherheits‑ und Zugriffsmanagement</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Bereits registriert?
+    <a href="#">Jetzt anmelden</a>
+  </div>
+
+</main>
 
 <!-- =========================================================
      ONETRUST LOADING — DO NOT MODIFY
 ========================================================== -->
 <script>
-  const CP_ID = "d54fe0a0-9009-4b48-89d6-3b0dab77d9bb";
+  const CP_ID = "cbc1219e-ed04-41b3-b4f0-1e9a71740089";
 
   function whenOTReady(callback) {
-    const timer = setInterval(() => {
-      if (window.OneTrust && OneTrust.webform?.InstallCP) {
-        clearInterval(timer);
+    const i = setInterval(() => {
+      if (window.OneTrust?.webform?.InstallCP) {
+        clearInterval(i);
         callback();
       }
     }, 80);
@@ -272,9 +273,7 @@
 
   window.addEventListener("DOMContentLoaded", () => {
     whenOTReady(() => {
-      OneTrust.webform.InstallCP(CP_ID, {
-        target: "#ot-container"
-      });
+      OneTrust.webform.InstallCP(CP_ID, { target: "#ot-container" });
     });
   });
 </script>
