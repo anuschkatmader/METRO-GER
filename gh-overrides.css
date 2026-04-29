@@ -1,1 +1,168 @@
+/* =========================================================
+   GH OVERRIDES — METRO AG
+   Purpose:
+   - Match metroag.de navigation + hero styling
+   - Keep original HTML untouched
+   - Work reliably on GitHub Pages
+   ========================================================= */
+
+/* ---------- Base typography (metric‑matched fallback) ---------- */
+html,
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   NAVIGATION — white pill container
+   ========================================================= */
+
+nav.main_nav {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+/* Pill container */
+nav.main_nav .main_nav__container {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 14px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.4) inset;
+  padding: 12px 18px;
+  margin-top: 12px;
+  backdrop-filter: blur(6px);
+}
+
+/* Nav links */
+nav.main_nav .main_nav__navi__tree__item > a span {
+  font-weight: 600;
+  color: #003c74;
+}
+
+/* Helper items (Kontakt + icons) */
+nav.main_nav
+.main_nav__navi__helper__tree__item a,
+nav.main_nav
+.main_nav__navi__helper__tree__item button {
+  font-weight: 600;
+  color: #003c74;
+}
+
+/* Reduce excessive horizontal spacing */
+nav.main_nav .main_nav__navi__tree__item > a {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+/* Mobile: remove pill look */
+@media (max-width: 768px) {
+  nav.main_nav .main_nav__container {
+    border-radius: 0;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+/* =========================================================
+   HERO — typography + gradient
+   ========================================================= */
+
+/* Headline */
+.main_header__content .field-headline {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Subheadline */
+.main_header__content .field-subheadline {
+  font-weight: 600;
+  line-height: 1.45;
+  max-width: 48rem;
+}
+
+/* Stronger gradient overlay (left → transparent) */
+.main_header__figure {
+  position: relative;
+}
+
+.main_header__figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 40, 80, 0.78) 0%,
+    rgba(0, 40, 80, 0.55) 38%,
+    rgba(0, 40, 80, 0.0) 72%
+  );
+  pointer-events: none;
+}
+
+/* Ensure content sits above overlay */
+.main_header__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   PLAY BUTTON
+   ========================================================= */
+
+.btn-iframe-consent.btn,
+.btn.btn-primary.btn-iframe-consent {
+  background: #0b62b3 !important;
+  border-color: #0b62b3 !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+}
+
+/* =========================================================
+   ICON FALLBACKS (GitHub Pages safe)
+   ========================================================= */
+
+.icon_search,
+.icon_language,
+.icon_play,
+.icon_arrow_right {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Search */
+.icon_search::before {
+  content: "🔍";
+  font-size: 16px;
+}
+
+/* Language */
+.icon_language::before {
+  content: "🌐";
+  font-size: 16px;
+}
+
+/* Color mode */
+.btn-icon-color-mode::before {
+  content: "☀️";
+  font-size: 16px;
+}
+
+/* Play */
+.icon_play::before {
+  content: "▶";
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+/* Arrow */
+.icon_arrow_right::before {
+  content: "→";
+  font-size: 16px;
+  margin-left: 10px;
+}
 
