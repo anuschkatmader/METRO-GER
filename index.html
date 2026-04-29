@@ -133,6 +133,39 @@
 .privacy-settings-btn:hover {
   text-decoration: underline;
 }
+/* =========================================================
+   HEADER CLEANUP — FINAL POLISH
+   ========================================================= */
+
+/* 1) Remove vertical divider lines between nav items */
+nav.main_nav .main_nav__navi__tree__item {
+  border-left: none !important;
+}
+
+nav.main_nav .main_nav__navi__tree__item::before {
+  content: none !important;
+}
+
+/* 2) Remove broken icon-font placeholders (empty squares) */
+nav.main_nav [class^="icon_"],
+nav.main_nav [class*=" icon_"] {
+  display: none !important;
+}
+
+/* 3) Lock header height so it never collapses or overlaps */
+nav.main_nav {
+  height: 72px;
+}
+
+nav.main_nav .main_nav__container {
+  height: 100%;
+  align-items: center;
+}
+
+/* 4) Ensure hero always starts BELOW the header */
+body {
+  padding-top: 72px !important;
+}
 
 </style>
 </head>
