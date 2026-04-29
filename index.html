@@ -7,7 +7,7 @@
 
 <style>
 /* =====================
-   BASE (UNCHANGED)
+   BASE
 ===================== */
 * { box-sizing: border-box; }
 
@@ -19,7 +19,7 @@ body {
 }
 
 /* =====================
-   HEADER (UNCHANGED – DO NOT TOUCH)
+   HEADER (FINAL)
 ===================== */
 .site-header {
   position: absolute;
@@ -38,7 +38,9 @@ body {
   box-shadow: 0 3px 14px rgba(0,0,0,0.08);
 }
 
-.site-header img { height: 30px; }
+.site-header img {
+  height: 30px;
+}
 
 .site-header nav a {
   color: #003c8f;
@@ -47,7 +49,11 @@ body {
   margin: 0 12px;
   text-decoration: none;
 }
-.site-header nav a::after { content: " ▾"; font-size: 11px; }
+
+.site-header nav a::after {
+  content: " ▾";
+  font-size: 11px;
+}
 
 .site-header .right {
   display: flex;
@@ -57,7 +63,7 @@ body {
 }
 
 /* =====================
-   HERO (UNCHANGED – APPROVED)
+   HERO (FINAL BEHAVIOR)
 ===================== */
 .hero {
   position: relative;
@@ -65,11 +71,14 @@ body {
   min-height: 580px;
   overflow: hidden;
 }
+
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+/* subtle METRO-style gradient */
 .hero::after {
   content: "";
   position: absolute;
@@ -81,6 +90,7 @@ body {
     rgba(0,60,143,0.75) 100%
   );
 }
+
 .hero-content {
   position: absolute;
   inset: 0;
@@ -88,105 +98,143 @@ body {
   align-items: flex-end;
   padding-bottom: 110px;
 }
+
 .hero-inner {
   max-width: 620px;
   padding-left: clamp(32px, 7vw, 110px);
   color: white;
 }
+
 .hero h1 {
   font-size: clamp(36px, 4.5vw, 48px);
   font-weight: 600;
   margin-bottom: 14px;
 }
+
 .hero p {
   font-size: 16px;
   line-height: 1.6;
   max-width: 520px;
   margin-bottom: 22px;
 }
+
 .hero .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 12px 24px;
   background: #0076d6;
   color: white;
   border-radius: 4px;
   font-size: 15px;
+  font-weight: 500;
   text-decoration: none;
 }
 
-/* arrows + dots unchanged */
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 22px;
-  padding: 10px;
-}
-.slider-arrow.left { left: 16px; }
-.slider-arrow.right { right: 16px; }
-
+/* slider dots */
 .slider-dots {
   position: absolute;
-  bottom: 26px;
+  bottom: 28px;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 6px;
-  width: 100%;
 }
+
 .slider-dots span {
   width: 8px;
   height: 8px;
   background: rgba(255,255,255,0.6);
   border-radius: 50%;
 }
-.slider-dots span.active { background: #0076d6; }
+
+.slider-dots span.active {
+  background: #0076d6;
+}
+
+/* arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: white;
+  padding: 10px;
+}
+
+.slider-arrow.left { left: 12px; }
+.slider-arrow.right { right: 12px; }
 
 /* =====================
-   EXISTING SECTIONS (UNCHANGED)
+   SECTIONS
 ===================== */
-.section { padding: 56px 0; }
+.section {
+  padding: 56px 0;
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* Schnellstart */
+/* =====================
+   SCHNELLSTART (CLEAN)
+===================== */
 .schnellstart {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 36px;
 }
+
+.schnellstart h2 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
 .schnellstart li {
   list-style: none;
   background: #e9f3fb;
   padding: 14px 18px;
   border-radius: 4px;
   margin-bottom: 10px;
+  font-size: 15px;
 }
 
-/* Enabling Moments */
+.event-box {
+  background: white;
+  padding: 26px;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+/* =====================
+   ENABLING MOMENTS (IMAGE)
+===================== */
 .enabling {
   position: relative;
   border-radius: 6px;
   overflow: hidden;
 }
+
 .enabling img {
   width: 100%;
   height: 420px;
   object-fit: cover;
 }
+
 .enabling::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(0,0,0,.55),
-    rgba(0,0,0,.2),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.15),
     rgba(0,0,0,0)
   );
 }
+
 .enabling .content {
   position: absolute;
   inset: 0;
@@ -196,78 +244,28 @@ body {
   color: white;
 }
 
-/* =====================
-   ✅ NEW BOTTOM SECTIONS (SCOPED)
-===================== */
-.metro-bottom { background:#eef5fb; }
-
-/* Großhandel */
-.metro-grosshandel {
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:48px;
-}
-.metro-grosshandel p {
-  font-size:15px;
-  line-height:1.6;
-}
-.metro-links {
-  background:#e9f3fb;
-  border-radius:6px;
-  padding:20px;
-}
-.metro-links a {
-  display:block;
-  padding:10px 0;
-  font-weight:500;
-}
-
-/* News */
-.metro-news-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-.metro-news-card {
-  background:white;
-  border-radius:6px;
-  overflow:hidden;
-  box-shadow:0 4px 14px rgba(0,0,0,.06);
-}
-.metro-news-card img {
-  height:200px;
-  width:100%;
-  object-fit:cover;
-}
-.metro-news-card .content {
-  padding:18px;
-}
-.metro-news-card h3 {
-  font-size:17px;
-  margin-bottom:8px;
-}
-.metro-news-card p {
-  font-size:14px;
-  line-height:1.5;
+.enabling h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
 }
 
 /* =====================
-   FOOTER (UNCHANGED)
+   FOOTER
 ===================== */
 footer {
-  background:#003c8f;
-  color:white;
-  padding:28px;
-  text-align:center;
-  font-size:13px;
+  background: white;
+  text-align: center;
+  padding: 28px;
+  font-size: 13px;
+  border-top: 1px solid #e1e1e1;
 }
 
-/* responsive unchanged */
-@media (max-width:1000px){
-  .metro-grosshandel,
-  .metro-news-grid,
-  .schnellstart { grid-template-columns:1fr; }
-  .site-header nav { display:none; }
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+  .site-header nav { display: none; }
+  .schnellstart { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -276,15 +274,19 @@ footer {
 
 <!-- HEADER -->
 <header class="site-header">
-  https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg
+  index.html
+    https://www.metroag.de/-/media/project/mag/shared/global/common/metro-logo-full_facelift.svg
+  </a>
+
   <nav>
     #Über uns</a>
     #Investoren</a>
-    #Verantwortung</a>
+    #
     #Newsroom</a>
     #Karriere</a>
     #Kontakt</a>
   </nav>
+
   <div class="right">🔍 🌐</div>
 </header>
 
@@ -294,53 +296,53 @@ footer {
   <div class="hero-content">
     <div class="hero-inner">
       <h1>Wurzeln mit Zukunft</h1>
-      <p>Tradition trifft Technik: Wie Familie Herrmann Profi‑Kräuter für METRO anbaut.</p>
+      <p>
+        Tradition trifft Technik: Wie Familie Herrmann Profi‑Kräuter für METRO
+        anbaut – nachhaltig, präzise und mit Liebe fürs Produkt.
+      </p>
       #METRO Stories</a>
     </div>
   </div>
+
   <div class="slider-arrow left">‹</div>
   <div class="slider-arrow right">›</div>
-  <div class="slider-dots"><span class="active"></span><span></span><span></span></div>
+
+  <div class="slider-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  </div>
 </section>
 
-<!-- ✅ NEW BOTTOM SECTIONS -->
-<section class="section metro-bottom">
-  <div class="container metro-grosshandel">
+<!-- SCHNELLSTART -->
+<section class="section">
+  <div class="container schnellstart">
     <div>
-      <h2>METRO steht für Großhandel</h2>
-      <p>Großhandel ist unsere Leidenschaft. Seit 60 Jahren sind wir Partner für professionelle Kunden.</p>
+      <h2>Schnellstart</h2>
+      <ul>
+        <li>Jahrespressekonferenz 2025</li>
+        <li>Geschäftsbericht 2024/25</li>
+        <li>METRO AG verlängert Vorstandsverträge bis 2030</li>
+        <li>ESG Ratings</li>
+      </ul>
     </div>
-    <div class="metro-links">
-      #Über uns →</a>
-      #Strategie →</a>
-      #Marken →</a>
+
+    <div class="event-box">
+      <strong>06 Mai 2026</strong>
+      <p>Halbjahresfinanzbericht H1 / Q2 2025/26</p>
     </div>
   </div>
 </section>
 
-<section class="section metro-bottom">
+<!-- ENABLING MOMENTS -->
+<section class="section">
   <div class="container">
-    <h2>Pressemitteilungen und Updates</h2>
-    <div class="metro-news-grid">
-      <div class="metro-news-card">
-        https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/buildings/logistics-site.jpg
-        <div class="content">
-          <h3>MAKRO baut FSD aus</h3>
-          <p>Neue Kapazitäten in Nordspanien.</p>
-        </div>
-      </div>
-      <div class="metro-news-card">
-        https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/events/bocuse-dor.jpg
-        <div class="content">
-          <h3>METRO & Bocuse d’Or</h3>
-          <p>Partnerschaft im Europa‑Finale.</p>
-        </div>
-      </div>
-      <div class="metro-news-card">
-        https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/images/events/shareholder-meeting.jpg
-        <div class="content">
-          <h3>Hauptversammlung 2025</h3>
-          <p>Umsatz und EBITDA gestiegen.</p>
+    <div class="enabling">
+      https://www.metroag.de/-/media/project/mag/shared/global/newsroom-media/videos/corporate-movie-2024-still-169.jpg
+      <div class="content">
+        <div>
+          <h2>Enabling Moments</h2>
+          #Mehr erfahren</a>
         </div>
       </div>
     </div>
@@ -348,7 +350,7 @@ footer {
 </section>
 
 <footer>
-  © 2025 METRO AG
+  © 2025 METRO AG – Static GitHub Pages Demo
 </footer>
 
 </body>
