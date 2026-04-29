@@ -87,7 +87,47 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="./gh-overrides.css" rel="stylesheet">
+<style id="gh-cleanup-fixes">
+  /* Remove broken pseudo-elements causing square artifacts */
+  nav.main_nav a::before,
+  nav.main_nav a::after,
+  nav.main_nav button::before,
+  nav.main_nav button::after {
+    content: none !important;
+    display: none !important;
+  }
 
+  nav.main_nav a:focus,
+  nav.main_nav button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Prevent header overlapping hero */
+  body {
+    padding-top: 96px;
+  }
+
+  nav.main_nav {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+  }
+
+  /* Stabilise hero height when JS is missing */
+  .main_header__figure,
+  .main_header__content {
+    min-height: 520px;
+  }
+
+  /* Empty dynamic sections: keep spacing clean */
+  .search-results,
+  .latest-news,
+  .latest-events {
+    min-height: 120px;
+  }
+</style>
+``
 </head>
 <body class="no-breadcrumb default-device bodyclass">
     
